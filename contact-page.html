@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Week 8 Contact Page</title>
+    <meta name="description" content="Contact Daniel Wade Heatherly, Front-End Web Developer.">
+    <meta name="keywords" content="school work, homework, web development, HTML, CSS, coding, contact page">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="reset.css">    
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="responsive.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Roboto&display=swap">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header>
+        <div class="header-inner">
+            <a class="skip-link" href="#main-content">Skip to main content</a>
+            <img src="images/DWH_logo.png" alt="Logo with the initials DWH">
+            <nav aria-label="Primary">
+                <a href="index.html">Home</a>
+                <a href="about-page.html">About</a>
+                <a href="projects-page.html">Projects</a>
+                <a href="resume-page.html">Resume</a>
+                <a href="contact-page.html" aria-current="page">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <main id="main-content">
+        <section class="contact" aria-labelledby="contact-title" role="region">
+            <h2 id="contact-title">Contact Me</h2>
+            <form aria-labelledby="contact-title">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" autocomplete="name" required placeholder="Your First and Last Name">
+
+                <label for="phone">Phone:</label>
+                <input
+                  type="tel"
+                  id="phone"
+                  name="phone"
+                  inputmode="numeric"
+                  autocomplete="tel"
+                  pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+                  title="Use the format 123-456-7890"
+                  required
+                  placeholder="123-456-7890">
+                <span id="phone-help" class="sr-only">Use the format 123-456-7890</span>
+
+                <label for="email">E-Mail:</label>
+                <input type="email" id="email" name="email" autocomplete="email" required placeholder="Your E-Mail">
+
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" rows="5" required placeholder="What is on your mind?"></textarea>
+                
+                <button type="submit">Send Message</button>
+            </form>
+        </section>
+    </main>
+    <footer>
+      <small>&copy 2025 Daniel Wade Heatherly. All rights reserved.</small>
+      <small><a href="contact-page.html">Contact</a></small>
+      <a href="https://www.linkedin.com/in/daniel-wade-heat/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile: Daniel Wade Heatherly">
+        <svg xmlns="http://www.w3.org/2000/svg" class="linkedin-icon" viewBox="0 0 24 24" aria-hidden="true">
+          <path fill="#0A66C2" d="M20.452 20.452h-3.554v-5.569c0-1.327-.025-3.036-1.852-3.036-1.853 0-2.137 
+            1.445-2.137 2.939v5.666H9.354V9h3.414v1.561h.049c.476-.9 1.637-1.852 3.37-1.852 
+            3.601 0 4.266 2.368 4.266 5.455v6.288zM5.337 7.433c-1.144 
+            0-2.069-.926-2.069-2.068 0-1.144.925-2.069 
+            2.069-2.069s2.068.925 2.068 2.069c0 1.142-.924 2.068-2.068 
+            2.068zm1.777 13.019H3.559V9h3.555v11.452zM22.225 
+            0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 
+            24 1.771 24h20.451C23.2 24 24 23.227 
+            24 22.271V1.729C24 .774 23.2 0 22.225 
+            0z"/>
+        </svg>
+      </a>
+    </footer>
+
+<!-- Matrix canvas JS must come above JS file link -->
+<canvas id="matrix" aria-hidden="true"></canvas>
+
+<!-- Your script comes last -->
+<script src="script.js"></script>
+
+</body>
+</html>

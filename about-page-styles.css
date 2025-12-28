@@ -1,0 +1,162 @@
+/* Tighten space under h3 on the About page */
+section.about h3 {
+  margin-top: 1.5rem;
+  margin-bottom: 0.25rem;
+}
+
+/* Commemoration: base figure/image styles (clean, no !important) */
+.commemoration { 
+  display: block;
+}
+
+.commemoration figure {
+  /* each pair (figure + next p) starts on a new row */
+  clear: both;
+
+  /* box styling */
+  margin: 0.5rem 0.75rem;
+  /* lighter, subtle shadow with a small spread; equal on all sides */
+  box-shadow: 0 2px 10px 2px rgba(0,0,0,0.12);
+  border-radius: 8px;
+  padding: 6px;                 /* very small, equal space on all sides */
+  background: transparent;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+/* Images fill the figure (prevents the right-side gap) */
+.commemoration figure > img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  margin: 0;
+  float: none;
+  border-radius: 6px;           /* slightly inside the figure radius */
+}
+
+/* Center figcaptions with minimal spacing */
+.commemoration figure figcaption {
+  text-align: center;
+  padding: 0.4rem 0.5rem;
+  margin: 0;
+  background: transparent;
+  border-top: 1px solid rgba(0,0,0,0.08);
+}
+
+/* Float and size each figure; the following paragraph wraps beside it */
+.commemoration figure.Vincent-and-I-Box {
+  float: left;
+  width: 31.875%;               /* ~85% of your prior 37.5% */
+  margin: 0.5rem 1rem 1rem 0;   /* gap to the right */
+}
+
+.commemoration figure.Vincent-Teaching-Box {
+  float: right;
+  width: 40%;
+  max-width: 600px;
+  margin: 0.5rem 0 1rem 1rem;   /* gap to the left */
+}
+
+.commemoration figure.Tampa-Devs-Box {
+  float: left;
+  width: 60%;
+  max-width: 900px;
+  margin: 0.5rem 1rem 1rem 0;
+}
+
+.commemoration figure.Grand-Canyon-Box {
+  float: right;
+  width: 60%;
+  max-width: 900px;
+  margin: 0.5rem 0 1rem 1rem;
+}
+
+/* Paragraph right after a figure sits beside it and then clears for the next pair */
+.commemoration figure + p {
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+/* clearfix after the wrapping paragraph to force the next figure onto a new line */
+.commemoration figure + p::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+/* Last paragraph below all images */
+.commemoration p:last-of-type {
+  clear: both;
+  margin-top: 0.75rem;
+}
+
+/* End clearfix for the whole block */
+
+/* Float sides for text wrap */
+.commemoration .Vincent-and-I-Photo { float: left; }
+.commemoration .Vincent-Teaching-Photo { float: right; }
+.commemoration .Tampa-Devs-Photo { float: left; }
+.commemoration .Grand-Canyon-Photo { float: right; }
+
+/* Sizes: first ≈3×, others ≈2×; keep text wrap friendly */
+.commemoration .Vincent-and-I-Photo {
+  width: 75%;
+  max-width: 980px;
+}
+
+.commemoration .Vincent-Teaching-Photo {
+  width: 60%;
+  max-width: 960px;
+}
+
+.commemoration .Tampa-Devs-Photo {
+  width: 70%;
+  max-width: 1200px;
+}
+
+.commemoration .Grand-Canyon-Photo {
+  width: 70%;
+  max-width: 1200px;
+}
+
+/* Ensure figures don’t default to full width */
+.commemoration figure { width: auto; }
+
+/* Clear floats at the end of the section */
+.commemoration::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive: stack figures on small screens */
+@media (max-width: 768px) {
+  .commemoration figure {
+    float: none;
+    width: 100%;
+    max-width: none;
+    margin: 0 0 1rem 0;
+    box-shadow: 0 1px 6px 1px rgba(0,0,0,0.12);
+    padding: 6px;
+    border-radius: 8px;
+  }
+  .commemoration figure + p::after {
+    content: none; /* no need to clear when floats are off */
+  }
+}
+
+/* Ensure each image fully fills its own figure (override older class rules) */
+.commemoration figure.Vincent-and-I-Box > img.Vincent-and-I-Photo,
+.commemoration figure.Vincent-Teaching-Box > img.Vincent-Teaching-Photo,
+.commemoration figure.Tampa-Devs-Box > img.Tampa-Devs-Photo,
+.commemoration figure.Grand-Canyon-Box > img.Grand-Canyon-Photo {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  margin: 0;
+  padding: 0;
+  float: none;
+  box-sizing: border-box;
+}

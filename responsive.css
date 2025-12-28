@@ -1,0 +1,109 @@
+/* Week 8 Responsiveness: BUILDING A COMPLETE WEBSITE */
+
+/* ==========================
+   Tablet Styles (min-width: 600px)
+   ========================== */
+
+@media (min-width: 600px) {
+  nav {
+    flex-direction: row;
+    gap: 1rem;
+  }
+
+  .hero {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .hero-image img {
+    margin-top: 1.5rem;
+    margin-left: 0;
+  }
+
+  .project-list {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .project-card {
+    flex: 1;
+  }
+}
+
+/* ==========================
+   Desktop Styles (min-width: 1024px)
+   ========================== */
+
+@media (min-width: 1024px) {
+  header {
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 1.5rem 3rem;
+    text-align: left;
+  }
+
+  header h1 {
+    margin-left: 1rem;
+  }
+
+  nav {
+    justify-content: flex-end;
+    margin-right: 1rem;
+  }
+
+  .hero {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .hero p {
+    font-size: 1.25rem;
+  }
+
+  .hero button {
+    font-size: 1.1rem;
+  }
+
+  .project-card {
+    margin: 0 1rem;
+  }
+}
+
+/* Responsive: stack image and text on small screens */
+@media (max-width: 700px) {
+  .about-flex-row {
+    flex-direction: column;
+    gap: 1em;
+  }
+  .diverse-skills-img {
+      max-width: 100%;
+  }
+  .biodiverse-img {
+    max-width: 100%;
+    order: 0;
+  }
+  .about-header-flex {
+    flex-direction: column;
+    gap: .5em;
+  }
+  .about-video-space {
+    width: 100%;
+    min-height: 180px;
+  }
+}
+
+/* Responsive: stack featuredprojects on small screens */
+@media (max-width: 700px) {
+    #home-projects .project-grid {
+        flex-direction: column;
+        align-items: center;
+        gap: 1.5rem;
+        padding: 0;
+    }
+    #home-projects .project-preview {
+        max-width: 95vw;
+        width: 100%;
+    }
+}
