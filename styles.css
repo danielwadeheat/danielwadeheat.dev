@@ -111,6 +111,7 @@ header {
   align-items: center;        /* Vertically center logo and nav */
   justify-content: space-between;
   padding: 0.25em 1em;        /* Reduce vertical padding */
+  position: relative;
 }
 
 header img {
@@ -122,17 +123,27 @@ header img {
 }
 
 nav {
-  display: flex; /* Allows children to have flex properties like gap and be ordered horizontally on same line as logo */
-  width: auto;
-  gap: 1rem;  align-items: center;        /* Vertically center nav links */
-  margin: 0 auto;              /* Remove margin pushing nav down */
+  display: none; /* mobile-first: hidden until hamburger opens */
+  width: 100%;
+  flex-direction: column;
+  gap: 0.5rem;
+  align-items: stretch;
+  margin: 0;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background-color: var(--primary-color);
+  padding: 0.5rem 0.75rem 0.75rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
 }
 
 nav a {
   display: flex;
   position: relative;    /* Make anchor the ripple container */
   overflow: hidden;      /* Keep ripple contained inside link */
-  margin: 0 1rem;
+  margin: 0;
   padding: 0.25rem .5rem; 
   border-radius: 5px;
   align-items: center;
@@ -143,6 +154,38 @@ nav a {
   transition: transform 0.75s ease, background-color 0.3s ease, color 0.3s ease;
   z-index: 0; /* Create stacking context */
   box-shadow: 0 4px 0 #222, 0 2px 8px rgba(0,0,0,0.15); /* 3D border */
+}
+
+.header-inner.nav-open nav {
+  display: flex;
+}
+
+.menu-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: transparent;
+  border: 2px solid #fff;
+  color: #fff;
+  padding: 0.35rem 0.6rem;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  line-height: 1;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+
+.menu-toggle:focus-visible {
+  outline: 2px solid var(--accent-color);
+  outline-offset: 2px;
+}
+
+.menu-icon {
+  display: inline-block;
+  width: 1.25rem;
+  height: 2px;
+  background: #fff;
+  box-shadow: 0 -6px 0 #fff, 0 6px 0 #fff;
 }
 
 nav a:hover {

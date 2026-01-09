@@ -30,6 +30,30 @@ resetDrops();
 // Animation variables
 let animationId;
 
+// ======= MOBILE NAV TOGGLE =======
+const headerInner = document.querySelector(".header-inner");
+const menuToggle = document.querySelector(".menu-toggle");
+const primaryNav = document.getElementById("primary-nav");
+
+function closeMobileNav() {
+  if (!headerInner) return;
+  if (headerInner.classList.contains("nav-open")) {
+    headerInner.classList.remove("nav-open");
+    if (menuToggle) menuToggle.setAttribute("aria-expanded", "false");
+  }
+}
+
+if (menuToggle && headerInner) {
+  menuToggle.addEventListener("click", () => {
+    const isOpen = headerInner.classList.toggle("nav-open");
+    menuToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+  });
+}
+
+window.addEventListener("resize", () => {
+  if (window.innerWidth >= 768) closeMobileNav();
+});
+
 // Draw Matrix rain
 function draw() {
   ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
@@ -56,6 +80,7 @@ document.querySelectorAll("header nav a").forEach(link => {
   link.addEventListener("click", function(e) {
     e.preventDefault();
     const targetUrl = this.getAttribute("href");
+    closeMobileNav();
 
     // Show canvas + start animation
     canvas.style.display = "block";

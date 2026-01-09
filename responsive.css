@@ -32,6 +32,33 @@
 }
 
 /* ==========================
+   Desktop/Nav Styles (min-width: 768px)
+   ========================== */
+
+@media (min-width: 768px) {
+  .menu-toggle {
+    display: none;
+  }
+
+  nav {
+    display: flex;
+    position: static;
+    width: auto;
+    flex-direction: row;
+    align-items: center;
+    margin: 0 auto;
+    background: transparent;
+    padding: 0;
+    border-top: 0;
+    box-shadow: none;
+  }
+
+  nav a {
+    margin: 0 1rem;
+  }
+}
+
+/* ==========================
    Desktop Styles (min-width: 1024px)
    ========================== */
 
