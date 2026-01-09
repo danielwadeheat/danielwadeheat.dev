@@ -134,3 +134,10 @@
         width: 100%;
     }
 }
+
+/* Force mobile nav to stay collapsed unless toggled */
+@media (max-width: 767px) {
+  nav {
+    display: flex;
+  }
+}

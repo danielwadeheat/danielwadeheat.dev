@@ -31,27 +31,44 @@ resetDrops();
 let animationId;
 
 // ======= MOBILE NAV TOGGLE =======
-const headerInner = document.querySelector(".header-inner");
-const menuToggle = document.querySelector(".menu-toggle");
-const primaryNav = document.getElementById("primary-nav");
-
-function closeMobileNav() {
-  if (!headerInner) return;
-  if (headerInner.classList.contains("nav-open")) {
-    headerInner.classList.remove("nav-open");
-    if (menuToggle) menuToggle.setAttribute("aria-expanded", "false");
+function closeMobileNav(headerInnerEl, toggleBtn) {
+  if (!headerInnerEl) return;
+  if (headerInnerEl.classList.contains("nav-open")) {
+    headerInnerEl.classList.remove("nav-open");
+    if (toggleBtn) toggleBtn.setAttribute("aria-expanded", "false");
   }
 }
 
-if (menuToggle && headerInner) {
-  menuToggle.addEventListener("click", () => {
-    const isOpen = headerInner.classList.toggle("nav-open");
-    menuToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
-  });
-}
+const headerInners = Array.from(document.querySelectorAll(".header-inner"));
 
-window.addEventListener("resize", () => {
-  if (window.innerWidth >= 768) closeMobileNav();
+document.querySelectorAll(".menu-toggle").forEach((btn) => {
+  const headerInnerEl = btn.closest(".header-inner");
+  btn.addEventListener("click", () => {
+    if (!headerInnerEl) return;
+    const isOpen = headerInnerEl.classList.toggle("nav-open");
+    btn.setAttribute("aria-expanded", isOpen ? "true" : "false");
+  });
+
+  window.addEventListener("resize", () => {
+    if (window.innerWidth >= 768) closeMobileNav(headerInnerEl, btn);
+  });
+});
+
+document.addEventListener("click", (event) => {
+  headerInners.forEach((headerInnerEl) => {
+    if (!headerInnerEl.classList.contains("nav-open")) return;
+    if (headerInnerEl.contains(event.target)) return;
+    const toggleBtn = headerInnerEl.querySelector(".menu-toggle");
+    closeMobileNav(headerInnerEl, toggleBtn);
+  });
+});
+
+document.addEventListener("keydown", (event) => {
+  if (event.key !== "Escape") return;
+  headerInners.forEach((headerInnerEl) => {
+    const toggleBtn = headerInnerEl.querySelector(".menu-toggle");
+    closeMobileNav(headerInnerEl, toggleBtn);
+  });
 });
 
 // Draw Matrix rain
@@ -80,7 +97,9 @@ document.querySelectorAll("header nav a").forEach(link => {
   link.addEventListener("click", function(e) {
     e.preventDefault();
     const targetUrl = this.getAttribute("href");
-    closeMobileNav();
+    const headerInnerEl = this.closest("header")?.querySelector(".header-inner");
+    const toggleBtn = headerInnerEl?.querySelector(".menu-toggle");
+    closeMobileNav(headerInnerEl, toggleBtn);
 
     // Show canvas + start animation
     canvas.style.display = "block";
