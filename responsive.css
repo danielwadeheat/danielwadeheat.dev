@@ -160,9 +160,10 @@
 /* Mobile-only glasses adjustment */
 @media (max-width: 900px) {
   .glasses {
-    top: 40%;
-    width: 210px;
-    height: 80px;
-    transform: translate(-50%, -50%) scale(0.18);
+    top: 42%;
+    left: 50%;
+    width: 230px;
+    height: 90px;
+    transform: translate(-50%, -50%) scale(0.24);
   }
 }
