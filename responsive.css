@@ -35,7 +35,7 @@
    Desktop/Nav Styles (min-width: 768px)
    ========================== */
 
-@media (min-width: 768px) {
+@media (min-width: 901px) {
   .menu-toggle {
     display: none;
   }
@@ -55,6 +55,7 @@
     opacity: 1;
     transform: none;
     pointer-events: auto;
+    overflow: visible;
   }
 
   nav a {
@@ -62,6 +63,13 @@
     opacity: 1;
     transform: none;
     transition-delay: 0ms;
+    box-shadow: 0 4px 0 #222, 0 2px 8px rgba(0,0,0,0.15);
+    border: 1px solid transparent;
+  }
+
+  .glasses {
+    top: 49%;
+    transform: translate(-50%, -50%) scale(0.48);
   }
 }
 
@@ -150,9 +158,11 @@
 }
 
 /* Mobile-only glasses adjustment */
-@media (max-width: 767px) {
+@media (max-width: 900px) {
   .glasses {
-    top: 46%;
-    transform: translate(-50%, -50%) scale(0.38);
+    top: 40%;
+    width: 210px;
+    height: 80px;
+    transform: translate(-50%, -50%) scale(0.18);
   }
 }
