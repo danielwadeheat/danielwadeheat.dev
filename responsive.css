@@ -51,10 +51,17 @@
     padding: 0;
     border-top: 0;
     box-shadow: none;
+    max-height: none;
+    opacity: 1;
+    transform: none;
+    pointer-events: auto;
   }
 
   nav a {
     margin: 0 1rem;
+    opacity: 1;
+    transform: none;
+    transition-delay: 0ms;
   }
 }
 
@@ -139,5 +146,13 @@
 @media (max-width: 767px) {
   nav {
     display: flex;
+  }
+}
+
+/* Mobile-only glasses adjustment */
+@media (max-width: 767px) {
+  .glasses {
+    top: 46%;
+    transform: translate(-50%, -50%) scale(0.38);
   }
 }
