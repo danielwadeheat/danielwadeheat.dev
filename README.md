@@ -1,6 +1,6 @@
 # danielwadeheat.dev
 
-- The professional portfolio of Daniel Wade Heatherly, highlighting and showcasing HTML, CSS, light JavaScript, and soon-to-be NodeJS skills learned through school '25-'26.
+- The professional portfolio of Daniel Wade Heatherly, highlighting and showcasing HTML, CSS, light JavaScript (through AI, as I only begun learning JS), and soon-to-be NodeJS skills learned through school '25-'26.
 
 - I built this unique, modern portfolio, as a multi-page responsive, accessible website containing a Home overview page, About Me page, Projects page (will add as I create more), Resume page, Contact Me page, and a hidden Confirmation page, all with a mobile-first approach.
 
