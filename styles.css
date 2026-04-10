@@ -1,10 +1,9 @@
-/* Week 8 Assigment Stylesheet: BUILDING A COMPLETE WEBSITE */
+/* Capstone Project Stylesheet: BUILDING A COMPLETE WEBSITE */
 
 /* ==========================
    Base Styles (Mobile-First)
    ========================== */
 
-/* Add this at the very top of your CSS file */
 *, *::before, *::after {
   box-sizing: border-box;
 }
@@ -59,7 +58,7 @@ body {
   color: var(--text-color);
   display: flex;
   flex-direction: column;
-  align-items: stretch; /* changed from center */
+  align-items: stretch; 
   min-height: 100vh;
   width: 100%;
   overflow-x: hidden;
@@ -101,8 +100,8 @@ header {
   text-align: center;
   justify-content: flex-end;
   min-height: 70px;           /* Reduce min-height */
-  position: sticky;      /* Add this line */
-  top: 0;                /* Add this line */
+  position: sticky;      
+  top: 0;                
   z-index: 100;          /* Ensure it stays above other content */
 }
 
@@ -246,7 +245,6 @@ nav a:active {
   background: transparent; /* no black background */
   transition: opacity 0.6s ease; /* Smooth fade-in/out for JS, instead of instantly fading to 0 */
   opacity: 1; /* Fully visible when active, so JS can fade from this to 0 */
-  /* REMOVE this duplicate so the canvas isn't always forced on */
   /* display: block; */
 }
 
@@ -266,7 +264,7 @@ nav a:active {
 }
 
 .hero-image img {
-  position: inherit;  /* was absolute */
+  position: inherit;  
   inset: 0;           /* pin to edges so cropping is stable */
   width: clamp(165px, 22.5vw, 255px);
   height: clamp(200px, 28vw, 320px);
@@ -722,7 +720,6 @@ footer a {
     font-family: var(--font-heading);
     width: 100%;
     box-sizing: border-box;
-    /* padding-left: 1.5rem;  <-- REMOVE THIS LINE */
 }
 
 /* Make sure all main sections use the same horizontal padding */
@@ -777,7 +774,7 @@ footer a {
 .about-header-flex h2 {
   font-family: var(--font-h2);
   font-size: 3rem;
-  font-weight: inherit;   /* changed from 400 */
+  font-weight: inherit;   
   letter-spacing: .1rem;
   text-align: center;
   width: 100%;
@@ -788,7 +785,7 @@ footer a {
 .projects h2 {
   font-family: var(--font-h2);
   font-size: 3rem;
-  font-weight: inherit;   /* changed from 400 */
+  font-weight: inherit;  
   letter-spacing: .1rem;
   text-align: center;
   margin: 2rem 0;
@@ -797,7 +794,7 @@ footer a {
 .resume h2 {
   font-family: var(--font-h2);
   font-size: 3rem;
-  font-weight: inherit;   /* changed from 400 */
+  font-weight: inherit;   
   letter-spacing: .1rem;
   text-align: center;
   margin: 0 0 3.5rem;
@@ -806,7 +803,7 @@ footer a {
 .contact h2 {
   font-family: var(--font-h2);
   font-size: 3rem;
-  font-weight: inherit;   /* changed from 400 */
+  font-weight: inherit;   
   letter-spacing: .1rem;
   text-align: center;
   margin: 1.5rem 0;
