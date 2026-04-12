@@ -71,7 +71,7 @@ main,
 .about,
 .projects,
 .contact {
-  width: 100%;
+  width: 100%; /* Ensure full width of viewport */
   max-width: 100vw;
   box-sizing: border-box;
   margin-left: auto;
@@ -83,9 +83,6 @@ main,
 .projects,
 .contact {
   max-width: 900px;
-  width: 100%;
-  margin-left: auto;
-  margin-right: auto;
   padding: 1.5rem .75rem;
 }
 
@@ -93,7 +90,6 @@ header {
   background-color: var(--primary-color);
   color: white;
   padding: 0.5rem 0;         /* Reduce vertical padding */
-  width: 100%;              /* Ensure full width of viewport */  
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -162,15 +158,15 @@ nav a {
   color: white;
   text-decoration: none;
   font-weight: bold;
-  transition: transform 0.75s ease, background-color 0.3s ease, color 0.3s ease;
+  transition:
+    opacity 280ms ease,
+    transform 360ms cubic-bezier(0.22, 1, 0.36, 1),
+    background-color 0.3s ease,
+    color 0.3s ease;
   z-index: 0; /* Create stacking context */
   box-shadow: 0 4px 0 #222, 0 2px 8px rgba(0,0,0,0.15); /* 3D border */
-}
-
-nav a {
   opacity: 0;
   transform: translateY(-8px);
-  transition: opacity 280ms ease, transform 360ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .header-inner.nav-open nav {
@@ -178,11 +174,6 @@ nav a {
   opacity: 1;
   transform: translateY(0);
   pointer-events: auto;
-}
-
-.header-inner.nav-open nav a {
-  opacity: 1;
-  transform: translateY(0);
 }
 
 .header-inner.nav-open nav a:nth-child(1) { transition-delay: 0ms; }
@@ -275,8 +266,6 @@ nav a:active {
     0 8px 20px rgba(0,0,0,0.55),
     0 0 10px rgba(0,0,0,0.65);
 }
-
-.hero-image { cursor: pointer; }
 
 /* Nudge shades alignment after image change */
 .glasses {
@@ -396,39 +385,6 @@ h2 {
     box-shadow: 1.5px 2px 0 #222, 0 1px 4px rgba(0,0,0,0.1);
 }
 
-/* About section as flex column */
-/* If .about has a max-width, the image will match it */
-.about {
-    display: flex;
-    flex-direction: column;
-    gap: 2em;
-    max-width: 700px; /* or your preferred content width */
-    margin: 0 auto;
-    padding: 0 1em;
-}
-
-/* Flex row for image and text wrapping */
-.about-flex-row {
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    gap: 1.5em;
-}
-
-/* Image on the left, text on the right */
-.diverse-skills-img {
-    max-width: 40%;
-    height: auto;
-    flex-shrink: 0;
-    /* Optional: add border-radius or box-shadow if desired */
-}
-
-/* Text will wrap to the right of the image */
-.about-flex-text {
-    flex: 1;
-    align-self: center;
-}
-
 .about,
 .projects {
   padding: 2rem;
@@ -492,72 +448,6 @@ footer a {
   width: 20px; /* the size of a tiny icon */
   height: 20px;
   fill: #0A66C2; /* LinkedIn blue if using inline SVG */
-}
-
-
-/* Make images responsive and not wider than text/content */
-.about img {
-    max-width: 40%;
-    height: auto;
-    display: block;
-    margin: 1em 0;
-}
-
-/* Float Diverse_Skills_Image.png right and wrap text */
-.diverse-skills-img {
-    float: none;
-    margin: 0 1em 1em 0;
-    max-width: 40%;
-    height: auto;
-    display: block;
-}
-
-/* Flex row for image right, text wraps left */
-.flex-wrap-row {
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    gap: 1.5em;
-}
-
-/* Biodiverse image floats right in flexbox */
-.biodiverse-img {
-    max-width: 40%;
-    height: auto;
-    order: 2; /* image on right */
-    flex-shrink: 0;
-}
-
-/* Text wraps left of image */
-.flex-wrap-text {
-    flex: 1;
-}
-
-/* Ensure woodland clearing image stretches to text width */
-.about .woodland-clearing-img {
-    display: block;
-    width: 100%;
-    max-width: none;
-    height: auto;
-    margin: 1em 0;
-    box-sizing: border-box;
-}
-
-.about-header-flex {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: .25rem;
-    margin-bottom: 0; /* Reduced from 1.5em */
-}
-
-.about-video-space {
-    width: 320px;
-    min-height: 180px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 8px;
 }
 
 .resume-link {
@@ -912,4 +802,28 @@ header .header-inner img[role="button"]:focus-visible {
   stroke: rgba(255,255,255,0.9);
   stroke-width: var(--crack-stroke, 1.5); /* scaled thickness */
   filter: drop-shadow(0 0 2px rgba(255,255,255,0.8));
+}
+
+/* Projects page image hover grow */
+.project-media {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  transform: scale(1);
+  transform-origin: center;
+  transition: transform 220ms ease, box-shadow 220ms ease;
+  cursor: pointer;
+}
+
+.project-media:hover {
+  transform: scale(1.04);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.18);
+}
+
+/* Optional: reduce motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .project-media {
+    transition: none;
+  }
 }

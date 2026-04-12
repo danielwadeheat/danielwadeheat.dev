@@ -160,3 +160,95 @@ section.about h3 {
   float: none;
   box-sizing: border-box;
 }
+
+/* Make images responsive and not wider than text/content */
+.about img {
+    max-width: 40%;
+    height: auto;
+    display: block;
+    margin: 1em 0;
+}
+
+/* Flex row for image right, text wraps left */
+.flex-wrap-row {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 1.5em;
+}
+
+/* Biodiverse image floats right in flexbox */
+.biodiverse-img {
+    max-width: 40%;
+    height: auto;
+    order: 2; /* image on right */
+    flex-shrink: 0;
+}
+
+/* Text wraps left of image */
+.flex-wrap-text {
+    flex: 1;
+}
+
+/* Ensure woodland clearing image stretches to text width */
+.about .woodland-clearing-img {
+    display: block;
+    width: 100%;
+    max-width: none;
+    height: auto;
+    margin: 1em 0;
+    box-sizing: border-box;
+}
+
+.about-header-flex {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: .25rem;
+    margin-bottom: 0; /* Reduced from 1.5em */
+}
+
+.about-video-space {
+    width: 320px;
+    min-height: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+}
+
+/* About section as flex column */
+/* If .about has a max-width, the image will match it */
+.about {
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+    max-width: 700px; /* or your preferred content width */
+    margin: 0 auto;
+    padding: 0 1em;
+}
+
+/* Flex row for image and text wrapping */
+.about-flex-row {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 1.5em;
+}
+
+/* Image on the left, text on the right and wrap text */
+.diverse-skills-img {
+    max-width: 40%;
+    height: auto;
+    flex-shrink: 0;
+    display: block;
+    float: none;
+    margin: 0 1em 1em 0;
+    /* Optional: add border-radius or box-shadow if desired */
+}
+
+/* Text will wrap to the right of the image */
+.about-flex-text {
+    flex: 1;
+    align-self: center;
+}

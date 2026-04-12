@@ -425,3 +425,22 @@ document.addEventListener('DOMContentLoaded', () => {
 
   setTimeout(() => loadConfettiLib(burstConfetti), 200);
 });
+
+// Add the project video previews here, once projects are done and short clips have been recorded and/or turned into a GIF
+document.querySelectorAll('.project-media').forEach((img) => {
+  img.addEventListener('click', () => {
+    const videoSrc = img.dataset.video?.trim();
+    if (!videoSrc) return;
+
+    const video = document.createElement('video');
+    video.src = videoSrc;
+    video.controls = true;
+    video.autoplay = true;
+    video.playsInline = true;
+    video.style.width = '100%';
+    video.style.height = 'auto';
+    video.style.borderRadius = '8px';
+
+    img.replaceWith(video);
+  });
+});
