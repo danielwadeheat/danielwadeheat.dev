@@ -833,3 +833,69 @@ header .header-inner img[role="button"]:focus-visible {
     transition: none;
   }
 }
+
+/* About section as flex column */
+/* If .about has a max-width, the image will match it */
+.about {
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+    max-width: 700px; /* or your preferred content width */
+    margin: 0 auto;
+    padding: 0 1em;
+}
+
+/* Mobile: stack image and text on small screens */
+@media (max-width: 700px) {
+  .about-flex-row {
+    flex-direction: column;
+    gap: 1em;
+  }
+  .diverse-skills-img {
+      max-width: 100%;
+  }
+  .biodiverse-img {
+    max-width: 100%;
+    order: 0;
+  }
+  .about-header-flex {
+    flex-direction: column;
+    gap: .5em;
+  }
+  .about-video-space {
+    width: 100%;
+    min-height: 180px;
+  }
+}
+
+/* Mobile: stack featuredprojects on small screens */
+@media (max-width: 700px) {
+    #home-projects .project-grid {
+        flex-direction: column;
+        align-items: center;
+        gap: 1.5rem;
+        padding: 0;
+    }
+    #home-projects .project-preview {
+        max-width: 95vw;
+        width: 100%;
+    }
+}
+
+/* Force mobile nav to stay collapsed unless toggled */
+@media (max-width: 767px) {
+  nav {
+    display: flex;
+  }
+}
+
+/* Base mobile/tablet glasses */
+@media (max-width: 900px) {
+  .glasses {
+    top: 45.5%;
+    left: 49.5%;
+    width: 260px;
+    height: 100px;
+    transform: translate(-50%, -50%) scale(0.32);
+  }
+}
