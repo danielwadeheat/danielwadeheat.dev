@@ -1,5 +1,5 @@
-/* Tighten space under h3 on the About page */
-section.about h3 {
+/* Tighten space under h2 on the About page */
+section.about h2 {
   margin-top: 1.5rem;
   margin-bottom: 0.25rem;
 }

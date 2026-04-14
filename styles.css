@@ -15,8 +15,8 @@
   --text-color: #1A1A1A;
   --font-heading: 'Montserrat', sans-serif;
   --font-body: 'Roboto', sans-serif;
-  --font-h2: 'Bavro', 'Lobster', 'Montserrat', sans-serif;
-  --font-h3: 'Throw My Hands Up', 'Lobster', 'Montserrat', sans-serif;
+  --font-h1: 'Bavro', 'Lobster', 'Montserrat', sans-serif;
+  --font-h2: 'Throw My Hands Up', 'Lobster', 'Montserrat', sans-serif;
 }
 
 /* Register local webfonts */
@@ -342,14 +342,18 @@ nav a:active {
 }
 
 .hero h1 {
-  font-family: var(--font-h2);
+  font-family: var(--font-h1);
   font-size: 3.5rem;
   text-align: center;
 }
 
-/* Make all h2 bold (works with Bavro via synthetic bold) */
+/* Semantic heading font mapping */
+h1 {
+  font-family: var(--font-h1);
+}
+
 h2 {
-  font-family: var(--font-h3);
+  font-family: var(--font-h2);
   font-weight: 700;
   font-synthesis: weight;
 }
@@ -400,18 +404,15 @@ h2 {
 }
 
 /* Remove/override other styles that conflict with section title styling */
-.about > h2,
-.about h3,
-.projects h3,
-#home-projects > h2,
-.resume-preview > h2 {
+.about > h1,
+.about h2,
+.projects h2,
+#home-projects > h1,
+.resume-preview > h1 {
     font-size: 1.4rem;
     font-weight: bold;
     text-align: left;
     margin-bottom: 1rem;
-    font-family: var(--font-heading);
-    /* Ensure h3s use the new h3 stack */
-    font-family: var(--font-h3);
 }
 
 .project-list {
@@ -556,7 +557,7 @@ footer a {
     box-sizing: border-box;
 }
 
-.resume-preview > h2 {
+.resume-preview > h1 {
     text-align: left;
     width: 100%;
 }
@@ -591,6 +592,10 @@ footer a {
   border-radius: 8px;
 }
 
+#home-projects .project-preview h2 {
+  font-size: 1.35rem;
+}
+
 /* Center and add padding to the featured projects preview on the home page */
 #home-projects {
     display: flex;
@@ -604,7 +609,7 @@ footer a {
     text-align: left;
 }
 
-#home-projects > h2 {
+#home-projects > h1 {
     text-align: left;
     width: 100%;
 }
@@ -669,8 +674,8 @@ footer a {
     box-sizing: border-box;
 }
 
-.about-header-flex h2 {
-  font-family: var(--font-h3);
+.about-header-flex h1 {
+  font-family: var(--font-h1);
   font-size: 3rem;
   font-weight: inherit;   
   letter-spacing: .1rem;
@@ -680,8 +685,8 @@ footer a {
   margin-bottom: 0;
 }
 
-.projects h2 {
-  font-family: var(--font-h3);
+.projects h1 {
+  font-family: var(--font-h1);
   font-size: 3rem;
   font-weight: inherit;  
   letter-spacing: .1rem;
@@ -689,8 +694,8 @@ footer a {
   margin: 2rem 0;
 }
 
-.resume h2 {
-  font-family: var(--font-h3);
+.resume h1 {
+  font-family: var(--font-h1);
   font-size: 3rem;
   font-weight: inherit;   
   letter-spacing: .1rem;
@@ -698,8 +703,8 @@ footer a {
   margin: 0 0 3.5rem;
 }
 
-.contact h2 {
-  font-family: var(--font-h3);
+.contact h1 {
+  font-family: var(--font-h1);
   font-size: 3rem;
   font-weight: inherit;   
   letter-spacing: .1rem;
