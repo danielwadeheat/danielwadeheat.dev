@@ -335,13 +335,13 @@ nav a:active {
   visibility: visible;
 }
 
-.hero h2,
+.hero h1,
 .hero p,
 .hero-btn {
   margin: 0.5rem 0;
 }
 
-.hero h2 {
+.hero h1 {
   font-family: var(--font-h2);
   font-size: 3.5rem;
   text-align: center;
@@ -349,12 +349,13 @@ nav a:active {
 
 /* Make all h2 bold (works with Bavro via synthetic bold) */
 h2 {
+  font-family: var(--font-h3);
   font-weight: 700;
   font-synthesis: weight;
 }
 
 /* Make just the name darker/stronger on the Home page */
-.hero h2 .name {
+.hero h1 .name {
   color: var(--primary-color);
   font-weight: 900;
   -webkit-text-stroke: 0.75px currentColor; /* visual thicken */
@@ -399,10 +400,11 @@ h2 {
 }
 
 /* Remove/override other styles that conflict with section title styling */
+.about > h2,
 .about h3,
 .projects h3,
 #home-projects > h2,
-.resume-preview > h3 {
+.resume-preview > h2 {
     font-size: 1.4rem;
     font-weight: bold;
     text-align: left;
@@ -554,7 +556,7 @@ footer a {
     box-sizing: border-box;
 }
 
-.resume-preview > h3 {
+.resume-preview > h2 {
     text-align: left;
     width: 100%;
 }
@@ -668,7 +670,7 @@ footer a {
 }
 
 .about-header-flex h2 {
-  font-family: var(--font-h2);
+  font-family: var(--font-h3);
   font-size: 3rem;
   font-weight: inherit;   
   letter-spacing: .1rem;
@@ -679,7 +681,7 @@ footer a {
 }
 
 .projects h2 {
-  font-family: var(--font-h2);
+  font-family: var(--font-h3);
   font-size: 3rem;
   font-weight: inherit;  
   letter-spacing: .1rem;
@@ -688,7 +690,7 @@ footer a {
 }
 
 .resume h2 {
-  font-family: var(--font-h2);
+  font-family: var(--font-h3);
   font-size: 3rem;
   font-weight: inherit;   
   letter-spacing: .1rem;
@@ -697,7 +699,7 @@ footer a {
 }
 
 .contact h2 {
-  font-family: var(--font-h2);
+  font-family: var(--font-h3);
   font-size: 3rem;
   font-weight: inherit;   
   letter-spacing: .1rem;
@@ -837,12 +839,12 @@ header .header-inner img[role="button"]:focus-visible {
 /* About section as flex column */
 /* If .about has a max-width, the image will match it */
 .about {
-    display: flex;
-    flex-direction: column;
-    gap: 2em;
-    max-width: 700px; /* or your preferred content width */
+    display: block;
+    max-width: 1100px; 
     margin: 0 auto;
-    padding: 0 1em;
+    padding: 2rem 1rem;
+    margin-top: 0;
+    margin-bottom: 0;
 }
 
 /* Mobile: stack image and text on small screens */
