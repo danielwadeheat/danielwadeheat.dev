@@ -52,6 +52,11 @@ section.about h2 {
   margin: 0.5rem 1rem 1rem 0;   /* gap to the right */
 }
 
+.commemoration > #commemoration-heading,
+.commemoration > h4 {
+  text-align: left;
+}
+
 .commemoration figure.Vincent-Teaching-Box {
   float: right;
   width: 40%;
