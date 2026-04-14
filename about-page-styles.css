@@ -61,7 +61,7 @@ section.about h2 {
   float: right;
   width: 40%;
   max-width: 600px;
-  margin: 0.5rem 0 1rem 1rem;   /* gap to the left */
+  margin: 0 0 0.5rem 1rem;      /* align text with image top; reduce post-block gap */
 }
 
 .commemoration figure.Tampa-Devs-Box {
