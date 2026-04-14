@@ -40,6 +40,41 @@ function closeMobileNav(headerInnerEl, toggleBtn) {
 }
 
 const headerInners = Array.from(document.querySelectorAll(".header-inner"));
+const headers = Array.from(document.querySelectorAll("header"));
+
+function syncHeaderOffset() {
+  const firstHeader = headers[0];
+  if (!firstHeader) return;
+  const headerHeight = Math.ceil(firstHeader.getBoundingClientRect().height);
+  document.documentElement.style.setProperty("--header-offset", `${headerHeight}px`);
+}
+
+function syncCondensedHeader() {
+  const shouldCondense = window.scrollY > 20;
+  headers.forEach((headerEl) => {
+    headerEl.classList.toggle("is-condensed", shouldCondense);
+  });
+  syncHeaderOffset();
+}
+
+syncCondensedHeader();
+
+let headerScrollTicking = false;
+window.addEventListener(
+  "scroll",
+  () => {
+    if (headerScrollTicking) return;
+    headerScrollTicking = true;
+    window.requestAnimationFrame(() => {
+      syncCondensedHeader();
+      headerScrollTicking = false;
+    });
+  },
+  { passive: true }
+);
+
+window.addEventListener("resize", syncCondensedHeader);
+window.addEventListener("load", syncHeaderOffset);
 
 document.querySelectorAll(".menu-toggle").forEach((btn) => {
   const headerInnerEl = btn.closest(".header-inner");
