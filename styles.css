@@ -407,12 +407,19 @@ h2 {
 .about > h1,
 .about h2,
 .projects h2,
-#home-projects > h1,
-.resume-preview > h1 {
+#home-projects > h2,
+.resume-preview > h2 {
     font-size: 1.4rem;
     font-weight: bold;
     text-align: left;
     margin-bottom: 1rem;
+}
+
+/* About/Projects page subheadings: Bavro, sized to match home section h1 titles */
+.about h2,
+.projects h2 {
+  font-family: var(--font-h1);
+  font-size: 1.4rem;
 }
 
 .project-list {
@@ -557,7 +564,7 @@ footer a {
     box-sizing: border-box;
 }
 
-.resume-preview > h1 {
+.resume-preview > h2 {
     text-align: left;
     width: 100%;
 }
@@ -609,7 +616,7 @@ footer a {
     text-align: left;
 }
 
-#home-projects > h1 {
+#home-projects > h2 {
     text-align: left;
     width: 100%;
 }
