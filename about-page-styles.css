@@ -20,11 +20,18 @@ section.about h2 {
   border-radius: 8px;
 }
 
-.about img {
-  max-width: 40%;
-  height: auto;
-  display: block;
-  margin: 1em 0;
+.professional-snapshot-layout {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.5rem;
+}
+
+.professional-snapshot-copy {
+  flex: 1;
+}
+
+.professional-snapshot-copy h2 {
+  margin-top: 0;
 }
 
 .about .woodland-clearing-img {
@@ -72,6 +79,7 @@ section.about h2 {
   text-align: left;
 }
 
+.professional-headshot-box,
 .commemoration figure {
   clear: both;
   width: auto;
@@ -84,18 +92,39 @@ section.about h2 {
   overflow: hidden;
 }
 
+.professional-headshot-box {
+  flex: 0 0 min(35%, 340px);
+  margin: 0;
+  padding: 5px;
+}
+
+.about img {
+  max-width: 40%;
+  height: auto;
+  display: block;
+  margin: 1em 0;
+}
+
+.professional-headshot-photo,
 .commemoration figure > img {
   display: block;
   width: 100%;
   max-width: 100%;
   height: auto;
   margin: 0;
-  float: none;
   border-radius: 6px;
 }
 
+.professional-headshot-photo {
+  float: none;
+  aspect-ratio: 1 / 1.12;
+  object-fit: cover;
+  object-position: center 14%;
+}
+
+.professional-headshot-box figcaption,
 .commemoration figure figcaption {
-  font-family: 'Throw My Hands Up', 'Lobster', 'Montserrat', sans-serif;
+  font-family: 'Throw My Hands Up', Lobster, Montserrat, sans-serif;
   text-align: center;
   padding: 0.4rem 0.5rem;
   margin: 0;
@@ -195,7 +224,19 @@ section.about h2 {
   box-sizing: border-box;
 }
 
-@media (width <= 768px) {
+  @media (width <= 768px) {
+  .professional-snapshot-layout {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .professional-headshot-box {
+    flex-basis: auto;
+    width: 100%;
+    max-width: 420px;
+    margin: 0;
+  }
+
   .commemoration figure {
     float: none;
     width: 100%;
