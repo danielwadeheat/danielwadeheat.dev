@@ -11,7 +11,7 @@
 :root {
   --primary-color: #004F4F;
   --accent-color: #89b389;
-  --background-color: url(https://cdn-media-1.freecodecamp.org/imgr/MJAkxbh.png);
+  --background-color: url("https://cdn-media-1.freecodecamp.org/imgr/MJAkxbh.png");
   --text-color: #1A1A1A;
   --font-heading: 'Montserrat', sans-serif;
   --font-body: 'Roboto', sans-serif;
@@ -21,7 +21,7 @@
 
 /* Register local webfonts */
 @font-face {
-  font-family: 'Bavro';
+  font-family: Bavro;
   src: url('assets/fonts/bavro/bavro-regular-webfont.woff2') format('woff2'),
        url('assets/fonts/bavro/bavro-regular-webfont.woff') format('woff'),
        url('assets/fonts/bavro/bavro-regular-webfont.ttf') format('truetype');
@@ -88,7 +88,7 @@ main,
 }
 
 header {
-  background-color: rgba(0, 79, 79, 0.92);
+  background-color: rgb(0 79 79 / 92%);
   color: white;
   padding: 0.5rem 0;         /* Reduce vertical padding */
   display: flex;
@@ -103,7 +103,6 @@ header {
   right: 0;
   z-index: 100;          /* Ensure it stays above other content */
   backdrop-filter: blur(4px) saturate(1.1);
-  -webkit-backdrop-filter: blur(4px) saturate(1.1);
   transition: padding 220ms ease, min-height 220ms ease, background-color 220ms ease;
 }
 
@@ -125,7 +124,7 @@ header img {
   height: auto;
   margin-bottom: 0;           /* Remove extra space below logo */
   border-radius: 25%;
-  box-shadow: 0 0 4px 4px rgba(32, 32, 32, 0.527); /* Adds logo border shadow; 1 x axis (horizontal offset); 2 y axis (vertical offset); 3 blur radius; 4 spread radius. */
+  box-shadow: 0 0 4px 4px rgb(32 32 32 / 52.7%); /* Adds logo border shadow; 1 x axis (horizontal offset); 2 y axis (vertical offset); 3 blur radius; 4 spread radius. */
   transition: width 220ms ease, box-shadow 220ms ease;
 }
 
@@ -140,10 +139,10 @@ nav {
   top: 100%;
   left: 0;
   right: 0;
-  background-color: rgba(0, 79, 79, 0.9);
+  background-color: rgb(0 79 79 / 90%);
   padding: 0.5rem 0.75rem 0.75rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.2);
-  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+  border-top: 1px solid rgb(255 255 255 / 20%);
+  box-shadow: 0 8px 16px rgb(0 0 0 / 20%);
   max-height: 0;
   opacity: 0;
   transform: translateY(-8px);
@@ -157,7 +156,7 @@ nav {
 header.is-condensed {
   padding: 0.2rem 0;
   min-height: 56px;
-  background-color: rgba(0, 79, 79, 0.7);
+  background-color: rgb(0 79 79 / 70%);
 }
 
 header.is-condensed .header-inner {
@@ -167,11 +166,11 @@ header.is-condensed .header-inner {
 
 header.is-condensed img {
   width: 3.3rem;
-  box-shadow: 0 0 3px 2px rgba(32, 32, 32, 0.4);
+  box-shadow: 0 0 3px 2px rgb(32 32 32 / 40%);
 }
 
 header.is-condensed nav {
-  background-color: rgba(0, 79, 79, 0.78);
+  background-color: rgb(0 79 79 / 78%);
 }
 
 nav a {
@@ -192,7 +191,7 @@ nav a {
     background-color 0.3s ease,
     color 0.3s ease;
   z-index: 0; /* Create stacking context */
-  box-shadow: 0 4px 0 #222, 0 2px 8px rgba(0,0,0,0.15); /* 3D border */
+  box-shadow: 0 4px 0 #222, 0 2px 8px rgb(0 0 0 / 15%); /* 3D border */
   opacity: 0;
   transform: translateY(-8px);
 }
@@ -229,7 +228,7 @@ nav a {
   cursor: pointer;
   line-height: 1;
   z-index: 110;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  box-shadow: 0 2px 6px rgb(0 0 0 / 20%);
 }
 
 .menu-toggle:focus-visible {
@@ -255,7 +254,7 @@ nav a:hover {
 
 nav a:active {
   transform: translate3d(1px, 1px, 1px);
-  box-shadow: 1.5px 2px 0 #222, 0 1px 4px rgba(0,0,0,0.1);
+  box-shadow: 1.5px 2px 0 #222, 0 1px 4px rgb(0 0 0 / 10%);
 }
 
 #matrix {  /* matrix code rain on nav button click */
@@ -270,6 +269,7 @@ nav a:active {
   background: transparent; /* no black background */
   transition: opacity 0.6s ease; /* Smooth fade-in/out for JS, instead of instantly fading to 0 */
   opacity: 1; /* Fully visible when active, so JS can fade from this to 0 */
+
   /* display: block; */
 }
 
@@ -297,8 +297,8 @@ nav a:active {
   object-position: 50% 50%;
   border-radius: 25%;
   box-shadow:
-    0 8px 20px rgba(0,0,0,0.55),
-    0 0 10px rgba(0,0,0,0.65);
+    0 8px 20px rgb(0 0 0 / 55%),
+    0 0 10px rgb(0 0 0 / 65%);
 }
 
 /* Matrix shades */
@@ -343,7 +343,7 @@ nav a:active {
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(0,0,0,0.75);
+  background: rgb(0 0 0 / 75%);
   pointer-events: none;
   z-index: 2;
 }
@@ -354,6 +354,7 @@ nav a:active {
 
 /* Disable old, conflicting shades rules */
 .shades-wrap { display: none !important; }
+
 .hero-image .shades,
 .hero-image #shadesCanvas { display: none !important; }
 
@@ -390,11 +391,11 @@ h2 {
 .hero h1 .name {
   color: var(--primary-color);
   font-weight: 900;
-  -webkit-text-stroke: 0.75px currentColor; /* visual thicken */
+  -webkit-text-stroke: 0.75px currentcolor; /* visual thicken */
 }
 
 .hero p {
-  font-size: rem;
+  font-size: 1rem; /* was: rem */
 }
 
 .hero-btn {
@@ -408,7 +409,7 @@ h2 {
   color: whitesmoke;
   cursor: pointer;
   transition: background 0.2s, color 0.2s;
-  box-shadow: 1px 4px 0 #222, 0 2px 8px rgba(0,0,0,0.15); /* 3D border */
+  box-shadow: 1px 4px 0 #222, 0 2px 8px rgb(0 0 0 / 15%); /* 3D border */
 }
 
 /* "View My Work" button hover effect */
@@ -421,7 +422,7 @@ h2 {
 
 .hero-btn:active {
     transform: translate3d(1px, 1px, 1px);
-    box-shadow: 1.5px 2px 0 #222, 0 1px 4px rgba(0,0,0,0.1);
+    box-shadow: 1.5px 2px 0 #222, 0 1px 4px rgb(0 0 0 / 10%);
 }
 
 .about,
@@ -512,7 +513,7 @@ footer a {
     max-width: 200px;
     cursor: pointer;
     box-sizing: border-box;
-    box-shadow: 1px 4px 0 #222, 0 2px 8px rgba(0,0,0,0.15); /* 3D border */
+    box-shadow: 1px 4px 0 #222, 0 2px 8px rgb(0 0 0 / 15%); /* 3D border */
     transition: background 0.2s, color 0.2s, box-shadow 0.15s, transform 0.15s;
 }
 
@@ -523,7 +524,7 @@ footer a {
 
 .resume-link:active {
     transform: translate3d(1px, 1px, 1px);
-    box-shadow: 1.5px 2px 0 #222, 0 1px 4px rgba(0,0,0,0.1);
+    box-shadow: 1.5px 2px 0 #222, 0 1px 4px rgb(0 0 0 / 10%);
 }
 
 /* Make contact section stack content vertically */
@@ -567,7 +568,7 @@ footer a {
     padding: 0.5em 1.5em;
     font-size: 1rem;
     cursor: pointer;
-    box-shadow: 1px 4px 0 #222, 0 2px 8px rgba(0,0,0,0.15); /* 3D border */
+    box-shadow: 1px 4px 0 #222, 0 2px 8px rgb(0 0 0 / 15%); /* 3D border */
     transition: background 0.2s, color 0.2s, box-shadow 0.15s, transform 0.15s;
 }
 
@@ -578,7 +579,7 @@ footer a {
 
 .contact button[type="submit"]:active {
     transform: translate3d(1px, 1px, 1px);
-    box-shadow: 1.5px 2px 0 #222, 0 1px 4px rgba(0,0,0,0.1);
+    box-shadow: 1.5px 2px 0 #222, 0 1px 4px rgb(0 0 0 / 10%);
 }
 
 /* Center Resume Preview section on Home Page */
@@ -619,7 +620,7 @@ footer a {
 
 .project-preview:hover {
   transform: scale(1.03);
-  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  box-shadow: 0 5px 15px rgb(0 0 0 / 10%);
 }
 
 .project-preview img {
@@ -632,7 +633,6 @@ footer a {
   font-size: 1.35rem;
 }
 
-/* Center and add padding to the featured projects preview on the home page */
 #home-projects {
     display: flex;
     flex-direction: column;
@@ -665,22 +665,6 @@ footer a {
 #home-projects,
 .resume-preview,
 .about {
-    padding: 2rem 1rem;
-    margin: 0 auto;
-    max-width: 1100px;
-    width: 100%;
-    box-sizing: border-box;
-    text-align: left;
-  /* Remove extra padding reset that breaks alignment */
-    /* padding-left: 0;
-    padding-right: 0; */
-}
-
-/* Fix: Ensure #home-projects uses the same padding as other sections for title alignment */
-#home-projects {
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
     padding: 2rem 1rem;
     margin: 0 auto;
     max-width: 1100px;
@@ -783,7 +767,7 @@ footer a {
   padding: 0;
   margin: -1px;
   overflow: hidden;
-  clip: rect(0 0 0 0);
+  clip-path: inset(50%); /* replace deprecated clip */
   white-space: nowrap;
   border: 0;
 }
@@ -795,27 +779,32 @@ footer a {
   min-height: 60vh;
   padding: 2rem 1rem;
 }
+
 .confirmation-inner {
   text-align: center;
   max-width: 640px;
   width: 100%;
 }
+
 .confirm-icon {
   width: 72px;
   height: 72px;
   margin: 0 auto 0.75rem;
 }
+
 .confirm-actions {
   margin-top: 1rem;
   display: inline-flex;
   gap: 0.75rem;
 }
+
 .confirm-btn {
   padding: 0.5rem 1rem;
   border-radius: 6px;
-  border: 2px solid currentColor;
+  border: 2px solid currentcolor;
   text-decoration: none;
 }
+
 .confirm-btn.secondary {
   opacity: 0.9;
 }
@@ -825,8 +814,9 @@ header .header-inner img[role="button"] {
   cursor: pointer;
   outline: none;
 }
+
 header .header-inner img[role="button"]:focus-visible {
-  outline: 2px solid currentColor;
+  outline: 2px solid currentcolor;
   outline-offset: 2px;
 }
 
@@ -841,16 +831,18 @@ header .header-inner img[role="button"]:focus-visible {
 /* Crack effect (SVG-based, no image) */
 .fx-crack { opacity: 1; transition: opacity 600ms ease; }
 .fx-crack.fade { opacity: 0; }
+
 .fx-crack .crack-impact {
-  fill: rgba(255,255,255,0.12);
-  stroke: rgba(255,255,255,0.45);
+  fill: rgb(255 255 255 / 12%);
+  stroke: rgb(255 255 255 / 45%);
   stroke-width: var(--crack-stroke, 1.5); /* scaled thickness */
 }
+
 .fx-crack .crack-ray {
   fill: none;
-  stroke: rgba(255,255,255,0.9);
+  stroke: rgb(255 255 255 / 90%);
   stroke-width: var(--crack-stroke, 1.5); /* scaled thickness */
-  filter: drop-shadow(0 0 2px rgba(255,255,255,0.8));
+  filter: drop-shadow(0 0 2px rgb(255 255 255 / 80%));
 }
 
 /* Projects page image hover grow */
@@ -867,7 +859,7 @@ header .header-inner img[role="button"]:focus-visible {
 
 .project-media:hover {
   transform: scale(1.04);
-  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.18);
+  box-shadow: 0 10px 24px rgb(0 0 0 / 18%);
 }
 
 /* Optional: reduce motion preference */
@@ -878,6 +870,7 @@ header .header-inner img[role="button"]:focus-visible {
 }
 
 /* About section as flex column */
+
 /* If .about has a max-width, the image will match it */
 .about {
     display: block;
@@ -889,22 +882,26 @@ header .header-inner img[role="button"]:focus-visible {
 }
 
 /* Mobile: stack image and text on small screens */
-@media (max-width: 700px) {
+@media (width <= 700px) {
   .about-flex-row {
     flex-direction: column;
     gap: 1em;
   }
+
   .diverse-skills-img {
       max-width: 100%;
   }
+
   .biodiverse-img {
     max-width: 100%;
     order: 0;
   }
+
   .about-header-flex {
     flex-direction: column;
     gap: .5em;
   }
+
   .about-video-space {
     width: 100%;
     min-height: 180px;
@@ -912,13 +909,14 @@ header .header-inner img[role="button"]:focus-visible {
 }
 
 /* Mobile: stack featuredprojects on small screens */
-@media (max-width: 700px) {
+@media (width <= 700px) {
     #home-projects .project-grid {
         flex-direction: column;
         align-items: center;
         gap: 1.5rem;
         padding: 0;
     }
+
     #home-projects .project-preview {
         max-width: 95vw;
         width: 100%;
@@ -926,14 +924,14 @@ header .header-inner img[role="button"]:focus-visible {
 }
 
 /* Force mobile nav to stay collapsed unless toggled */
-@media (max-width: 767px) {
+@media (width <= 767px) {
   nav {
     display: flex;
   }
 }
 
 /* Base mobile/tablet glasses */
-@media (max-width: 900px) {
+@media (width <= 900px) {
   .glasses {
     top: 45.5%;
     left: 49.5%;
