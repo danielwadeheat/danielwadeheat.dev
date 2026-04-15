@@ -22,9 +22,9 @@
 /* Register local webfonts */
 @font-face {
   font-family: 'Bavro';
-  src: url('fonts/bavro/bavro-regular-webfont.woff2') format('woff2'),
-       url('fonts/bavro/bavro-regular-webfont.woff') format('woff'),
-       url('fonts/bavro/bavro-regular-webfont.ttf') format('truetype');
+  src: url('assets/fonts/bavro/bavro-regular-webfont.woff2') format('woff2'),
+       url('assets/fonts/bavro/bavro-regular-webfont.woff') format('woff'),
+       url('assets/fonts/bavro/bavro-regular-webfont.ttf') format('truetype');
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -32,7 +32,7 @@
 
 @font-face {
   font-family: 'Throw My Hands Up';
-  src: url('fonts/throw_my_hands_up/ThrowMyHandsUpintheAir.ttf') format('truetype');
+  src: url('assets/fonts/throw_my_hands_up/ThrowMyHandsUpintheAir.ttf') format('truetype');
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -40,7 +40,7 @@
 
 @font-face {
   font-family: 'Throw My Hands Up';
-  src: url('fonts/throw_my_hands_up/ThrowMyHandsUpintheAirBold.ttf') format('truetype');
+  src: url('assets/fonts/throw_my_hands_up/ThrowMyHandsUpintheAirBold.ttf') format('truetype');
   font-weight: 700;
   font-style: normal;
   font-display: swap;
