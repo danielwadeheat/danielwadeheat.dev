@@ -1,5 +1,3 @@
-/* Week 8 Responsiveness: BUILDING A COMPLETE WEBSITE */
-
 /* ==========================
    Tablet Styles (min-width: 600px)
    ========================== */
@@ -117,21 +115,19 @@
   }
 }
 
-/* Zenbook Fold only (laptop-like pointer/hover) viewport: shaded lowered to fit */
+/* Device-specific glasses positioning adjustments. */
 @media (width >= 850px) and (width <= 855px) and (height >= 1275px) and (height <= 1285px) and (pointer: coarse) {
   .glasses {
     top: 50%;
   }
 }
 
-/* iPad Mini portrait viewport: shades lowered to fit */
 @media (width >= 760px) and (width <= 780px) and (height >= 1000px) and (height <= 1040px) and (pointer: coarse) {
   .glasses {
     top: 50%;
   }
 }
 
-/* iPad Air portrait viewport: shades lowered to fit */
 @media (width >= 810px) and (width <= 830px) and (height >= 1160px) and (height <= 1200px) and (pointer: coarse) {
   .glasses {
     top: 50%;

@@ -1,34 +1,24 @@
-/* Tighten space under h2 on the About page */
 section.about h2 {
   margin-top: 1.5rem;
   margin-bottom: 0.25rem;
 }
 
-/* Commemoration: base figure/image styles (clean, no !important) */
 .commemoration { 
   display: block;
 }
 
 .commemoration figure {
-  /* each pair (figure + next p) starts on a new row */
   clear: both;
-
-  /* box styling */
   margin: 0.5rem 0.75rem;
-
-  /* lighter, subtle shadow with a small spread; equal on all sides */
   box-shadow: 0 2px 10px 2px rgb(0 0 0 / 12%);
   border-radius: 8px;
   padding: 6px;  
   background: transparent;
   box-sizing: border-box;
   overflow: hidden;
-
-  /* Ensure figures don’t default to full width */
   width: auto;
 }
 
-/* Images fill the figure (prevents the right-side gap) */
 .commemoration figure > img {
   display: block;
   width: 100%;
@@ -36,10 +26,9 @@ section.about h2 {
   height: auto;
   margin: 0;
   float: none;
-  border-radius: 6px;           /* slightly inside the figure radius */
+  border-radius: 6px;
 }
 
-/* Center figcaptions with minimal spacing */
 .commemoration figure figcaption {
   text-align: center;
   padding: 0.4rem 0.5rem;
@@ -48,11 +37,10 @@ section.about h2 {
   border-top: 1px solid rgb(0 0 0 / 8%);
 }
 
-/* Float and size each figure; the following paragraph wraps beside it */
 .commemoration figure.Vincent-and-I-Box {
   float: left;
-  width: 31.875%;               /* ~85% of your prior 37.5% */
-  margin: 0.5rem 1rem 1rem 0;   /* gap to the right */
+  width: 31.875%;
+  margin: 0.5rem 1rem 1rem 0;
 }
 
 .commemoration > #commemoration-heading,
@@ -64,7 +52,7 @@ section.about h2 {
   float: right;
   width: 40%;
   max-width: 600px;
-  margin: 0.5rem 0 1rem 1rem;   /* gap to the left */
+  margin: 0.5rem 0 1rem 1rem;
 }
 
 .commemoration figure.Tampa-Devs-Box {
@@ -81,26 +69,22 @@ section.about h2 {
   margin: 0.5rem 0 1rem 1rem;
 }
 
-/* Paragraph right after a figure sits beside it and then clears for the next pair */
 .commemoration figure + p {
   margin-top: 0;
   margin-bottom: 1rem;
 }
 
-/* clearfix after the wrapping paragraph to force the next figure onto a new line */
 .commemoration figure + p::after {
   content: "";
   display: block;
   clear: both;
 }
 
-/* Align this paragraph start with the top of the Vincent Teaching image */
 .commemoration figure.Vincent-Teaching-Box + p {
   clear: left;
   margin-top: 0;
 }
 
-/* Last paragraph below all images */
 .commemoration p:last-of-type {
   clear: both;
   margin-top: 0.75rem;
@@ -130,7 +114,6 @@ section.about h2 {
   max-width: 1200px;
 }
 
-/* Ensure each image fully fills its own figure (override older class rules) */
 .commemoration figure.Vincent-and-I-Box > img.Vincent-and-I-Photo,
 .commemoration figure.Vincent-Teaching-Box > img.Vincent-Teaching-Photo,
 .commemoration figure.Tampa-Devs-Box > img.Tampa-Devs-Photo,
@@ -145,14 +128,12 @@ section.about h2 {
   box-sizing: border-box;
 }
 
-/* Clear floats at the end of the section */
 .commemoration::after {
   content: "";
   display: table;
   clear: both;
 }
 
-/* Responsive: stack figures on small screens */
 @media (width <= 768px) {
   .commemoration figure {
     float: none;
@@ -165,11 +146,10 @@ section.about h2 {
   }
 
   .commemoration figure + p::after {
-    content: none; /* no need to clear when floats are off */
+    content: none;
   }
 }
 
-/* Make images responsive and not wider than text/content */
 .about img {
     max-width: 40%;
     height: auto;
@@ -177,7 +157,6 @@ section.about h2 {
     margin: 1em 0;
 }
 
-/* Flex row for image right, text wraps left */
 .flex-wrap-row {
     display: flex;
     flex-direction: row;
@@ -185,12 +164,10 @@ section.about h2 {
     gap: 1.5em;
 }
 
-/* Text wraps left of image */
 .flex-wrap-text {
     flex: 1;
 }
 
-/* Ensure woodland clearing image stretches to text width */
 .about .woodland-clearing-img {
     display: block;
     width: 100%;
@@ -200,7 +177,6 @@ section.about h2 {
     box-sizing: border-box;
 }
 
-/* Image on the left, text on the right and wrap text */
 .diverse-skills-img {
     max-width: 40%;
     height: auto;
@@ -228,14 +204,13 @@ section.about h2 {
     border-radius: 8px;
 }
 
-/* Flex row for image and text wrapping */
 .about-flex-row {
     display: flex;
     flex-direction: row;
     align-items: flex-start;
     gap: 1.5em;
+}
 
-}/* Text will wrap to the right of the image */
 .about-flex-text {
     flex: 1;
     align-self: center;

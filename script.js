@@ -1,8 +1,6 @@
-// ======= MATRIX EFFECT SETUP =======
 const canvas = document.getElementById("matrix");
 const ctx = canvas.getContext("2d");
 
-// Resize canvas
 function resizeCanvas() {
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
@@ -13,24 +11,19 @@ window.addEventListener("resize", () => {
   resetDrops();
 });
 
-// Characters for Matrix rain
 const letters = "アァイィウヴエェオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワン".split("");
 
-// Font settings
 const fontSize = 14;
 let drops;
 
-// Initialize drops based on canvas width
 function resetDrops() {
   const columns = canvas.width / fontSize;
   drops = Array.from({ length: columns }).fill(1);
 }
 resetDrops();
 
-// Animation variables
 let animationId;
 
-// ======= MOBILE NAV TOGGLE =======
 function closeMobileNav(headerInnerEl, toggleBtn) {
   if (!headerInnerEl) return;
   if (headerInnerEl.classList.contains("nav-open")) {
@@ -106,7 +99,6 @@ document.addEventListener("keydown", (event) => {
   });
 });
 
-// Draw Matrix rain
 function draw() {
   ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
   ctx.fillRect(0, 0, canvas.width, canvas.height);
@@ -127,7 +119,6 @@ function draw() {
   animationId = requestAnimationFrame(draw);
 }
 
-// ======= NAV LINK TRIGGER =======
 document.querySelectorAll("header nav a").forEach(link => {
   link.addEventListener("click", function(e) {
     e.preventDefault();
@@ -136,44 +127,36 @@ document.querySelectorAll("header nav a").forEach(link => {
     const toggleBtn = headerInnerEl?.querySelector(".menu-toggle");
     closeMobileNav(headerInnerEl, toggleBtn);
 
-    // Show canvas + start animation
     canvas.style.display = "block";
     draw();
 
-    // Flag to continue effect on next page
     sessionStorage.setItem("matrixEffect", "true");
 
-    // Delay before navigating
     setTimeout(() => {
       window.location.href = targetUrl;
-    }, 1500); // 1.5 seconds before navigation
+    }, 1500);
   });
 });
 
-// ======= CONTINUE EFFECT ON PAGE LOAD =======
 window.addEventListener("load", () => {
   if (sessionStorage.getItem("matrixEffect") === "true") {
     canvas.style.display = "block";
     draw();
 
-    // Remove the flag
     sessionStorage.removeItem("matrixEffect");
 
-    // Stop after 1 second lingering
     setTimeout(() => {
-      // Fade out the canvas
       canvas.style.opacity = "0";
       setTimeout(() => {
         cancelAnimationFrame(animationId);
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         canvas.style.display = "none";
-        canvas.style.opacity = "1"; // Reset for next time
-      }, 600); // Match the CSS transition duration
-    }, 1000); // 1 second lingering
+        canvas.style.opacity = "1";
+      }, 600);
+    }, 1000);
   }
 });
 
-// ======= POWERGLITCH SETUP =======
 const heroEl = document.querySelector(".hero-image");
 if (heroEl && window.PowerGlitch) {
   PowerGlitch.glitch(heroEl, {
@@ -187,8 +170,7 @@ if (heroEl && window.PowerGlitch) {
   });
 }
 
-// ======= REMOVE/SAFEGUARD OLD SINGLE-CANVAS BLOCK =======
-// Guard so missing #shadesCanvas doesn't crash the file
+// Legacy fallback for the old single-canvas shades effect.
 const heroImage = document.querySelector(".hero-image");
 const shadesCanvas = document.getElementById("shadesCanvas");
 if (heroImage && shadesCanvas) {
@@ -222,11 +204,9 @@ if (heroImage && shadesCanvas) {
   });
 }
 
-// ======= MINI LENS MATRIX (per-lens) =======
 function startLensMatrix(canvas) {
   if (!canvas) return;
 
-  // If already running, stop before restarting
   if (canvas.__rafId) cancelAnimationFrame(canvas.__rafId);
 
   const ctxL = canvas.getContext('2d');
@@ -235,12 +215,10 @@ function startLensMatrix(canvas) {
   const drops = Array.from({ length: cols }, () => 1);
 
   function drawLens() {
-    // Dark trail
     ctxL.globalCompositeOperation = 'source-over';
     ctxL.fillStyle = 'rgba(0,0,0,0.12)';
     ctxL.fillRect(0, 0, canvas.width, canvas.height);
 
-    // Bright green letters
     ctxL.globalCompositeOperation = 'screen';
     ctxL.filter = 'saturate(1.6) brightness(1.35)';
     ctxL.fillStyle = '#00ff00';
@@ -253,12 +231,11 @@ function startLensMatrix(canvas) {
       const x = i * fontSize;
       const y = drops[i] * fontSize;
       ctxL.fillText(ch, x, y);
-      ctxL.fillText(ch, x, y); // double-pass to intensify
+      ctxL.fillText(ch, x, y);
       if (y > canvas.height && Math.random() > 0.965) drops[i] = 0;
       drops[i]++;
     }
 
-    // reset
     ctxL.shadowBlur = 0;
     ctxL.filter = 'none';
     ctxL.globalCompositeOperation = 'source-over';
@@ -278,7 +255,6 @@ function stopLensMatrix(canvas) {
   ctxL.clearRect(0, 0, canvas.width, canvas.height);
 }
 
-// ======= REVEAL/TOGGLE ON CLICK =======
 (function initHeroGlasses() {
   const hero = document.querySelector('.hero-image');
   const left = document.getElementById('lensLeft');
@@ -300,13 +276,12 @@ function stopLensMatrix(canvas) {
   });
 })();
 
-// Contact form: validate, then redirect to confirmation (no confetti here)
 document.addEventListener('DOMContentLoaded', () => {
   const form = document.querySelector('section.contact form');
   if (!form) return;
 
   form.addEventListener('submit', (e) => {
-    if (!form.checkValidity()) return; // let native validation run
+    if (!form.checkValidity()) return;
     e.preventDefault();
 
     sessionStorage.setItem('msgSent', '1');
@@ -314,8 +289,6 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
-// ======= FX overlays (confetti/flash/crack) =======
-// If you already added these helpers earlier, keep them; otherwise this adds them.
 function loadConfettiLib(cb) {
   if (window.confetti) return cb();
   const s = document.createElement('script');
@@ -340,10 +313,7 @@ function burstConfetti() {
   })();
 }
 
-// Remove (or ignore) the PNG preload; not needed for SVG version
-// (function preloadCrack() { ... })();
-
-// Replace crackOverlay to accept center and scale (default 15%)
+// Draw an SVG crack overlay, optionally centered on a target point.
 function crackOverlay(opts = {}) {
   const { x, y, scale = 0.15 } = opts;
 
@@ -362,10 +332,8 @@ function crackOverlay(opts = {}) {
   svg.setAttribute('height', '100%');
   svg.setAttribute('viewBox', `0 0 ${w} ${h}`);
 
-  // Adjust stroke thickness with scale
   el.style.setProperty('--crack-stroke', String(Math.max(0.5, 1.5 * scale)));
 
-  // center impact
   const impact = document.createElementNS(svgNS, 'circle');
   impact.setAttribute('cx', cx);
   impact.setAttribute('cy', cy);
@@ -373,7 +341,6 @@ function crackOverlay(opts = {}) {
   impact.setAttribute('class', 'crack-impact');
   svg.appendChild(impact);
 
-  // jagged rays
   function addRay(angleDeg, length, segments = 8) {
     const angle = (angleDeg * Math.PI) / 180;
     let x1 = cx, y1 = cy;
@@ -407,7 +374,7 @@ function crackOverlay(opts = {}) {
   setTimeout(() => el.remove(), 1800);
 }
 
-// Hook the DWH logo so the crack appears centered on the logo
+// Center the crack effect on the logo when it is activated.
 (function hookLogoCrack() {
   const logo = document.getElementById('site-logo') || document.querySelector('header img');
   if (!logo || logo.dataset.crackHooked) return;
@@ -418,9 +385,9 @@ function crackOverlay(opts = {}) {
 
   const trigger = () => {
     const rect = logo.getBoundingClientRect();
-    const x = rect.left + rect.width / 2;     // viewport (fixed) coords
+    const x = rect.left + rect.width / 2;
     const y = rect.top + rect.height / 2;
-    crackOverlay({ x, y, scale: 0.15 });      // 15% size, centered on logo
+    crackOverlay({ x, y, scale: 0.15 });
   };
 
   logo.addEventListener('click', trigger);
@@ -428,8 +395,8 @@ function crackOverlay(opts = {}) {
     if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); trigger(); }
   });
 })();
- 
-// ======= Make the DWH logo trigger the crack effect =======
+
+// Fallback for pages that do not expose a stable logo id.
 document.addEventListener('DOMContentLoaded', () => {
   const logo = document.querySelector('header .header-inner img[alt*="DWH"]') || 
                document.querySelector('header .header-inner img');
@@ -448,7 +415,6 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 });
 
-// ======= Confirmation page: replay confetti on load (if navigated from Contact)
 document.addEventListener('DOMContentLoaded', () => {
   const confirmSection = document.querySelector('section.confirmation');
   if (!confirmSection) return;
@@ -461,7 +427,7 @@ document.addEventListener('DOMContentLoaded', () => {
   setTimeout(() => loadConfettiLib(burstConfetti), 200);
 });
 
-// Add the project video previews here, once projects are done and short clips have been recorded and/or turned into a GIF
+// Swap a project image for its linked video preview when a video source is present.
 document.querySelectorAll('.project-media').forEach((img) => {
   img.addEventListener('click', () => {
     const videoSrc = img.dataset.video?.trim();

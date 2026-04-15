@@ -1,5 +1,3 @@
-<!--Daniel Wade's Confirmation page-->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -72,7 +70,7 @@
   <canvas id="matrix" aria-hidden="true"></canvas>
 
   <script>
-    // Gate: only show this page after a legit submit
+    // Redirect direct visits back to the contact page unless the submit flag is present.
     (function () {
       const qs = new URLSearchParams(location.search);
       const allowed = qs.get('sent') === '1' || sessionStorage.getItem('msgSent') === '1';
@@ -80,7 +78,7 @@
         location.replace('contact-page.html');
         return;
       }
-      sessionStorage.removeItem('msgSent'); // clean up flag
+      sessionStorage.removeItem('msgSent');
     }());
   </script>
   <script src="script.js"></script>
