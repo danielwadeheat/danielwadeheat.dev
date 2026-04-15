@@ -1,5 +1,5 @@
 /* ==========================
-   Tablet Styles (min-width: 600px)
+   Tablet Styles
    ========================== */
 
 @media (width >= 600px) {
@@ -30,7 +30,7 @@
 }
 
 /* ==========================
-   Desktop/Nav Styles (min-width: 768px)
+   Desktop Navigation
    ========================== */
 
 @media (width >= 901px) {
@@ -76,7 +76,7 @@
 }
 
 /* ==========================
-   Desktop Styles (min-width: 1024px)
+   Desktop Layout
    ========================== */
 
 @media (width >= 1024px) {
@@ -115,12 +115,9 @@
   }
 }
 
-/* Device-specific glasses positioning adjustments. */
-@media (width >= 850px) and (width <= 855px) and (height >= 1275px) and (height <= 1285px) and (pointer: coarse) {
-  .glasses {
-    top: 50%;
-  }
-}
+/* ==========================
+   Device-Specific Hero Glasses
+   ========================== */
 
 @media (width >= 760px) and (width <= 780px) and (height >= 1000px) and (height <= 1040px) and (pointer: coarse) {
   .glasses {
@@ -129,6 +126,12 @@
 }
 
 @media (width >= 810px) and (width <= 830px) and (height >= 1160px) and (height <= 1200px) and (pointer: coarse) {
+  .glasses {
+    top: 50%;
+  }
+}
+
+@media (width >= 850px) and (width <= 855px) and (height >= 1275px) and (height <= 1285px) and (pointer: coarse) {
   .glasses {
     top: 50%;
   }
