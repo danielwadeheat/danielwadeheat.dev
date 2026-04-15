@@ -95,6 +95,7 @@ section.about h2 {
 }
 
 .commemoration figure figcaption {
+  font-family: 'Throw My Hands Up', 'Lobster', 'Montserrat', sans-serif;
   text-align: center;
   padding: 0.4rem 0.5rem;
   margin: 0;
