@@ -93,9 +93,9 @@ section.about h2 {
 }
 
 .professional-headshot-box {
-  flex: 0 0 min(35%, 340px);
+  flex: 0 0 min(38%, 420px);
   margin: 0;
-  padding: 5px;
+  padding: 6px;
 }
 
 .about img {
@@ -115,9 +115,13 @@ section.about h2 {
   border-radius: 6px;
 }
 
-.professional-headshot-photo {
+.about .professional-headshot-photo {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  margin: 0;
   float: none;
-  aspect-ratio: 1 / 1.12;
+  aspect-ratio: 1 / 1.14;
   object-fit: cover;
   object-position: center 14%;
 }
