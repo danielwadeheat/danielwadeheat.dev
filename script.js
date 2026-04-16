@@ -280,12 +280,10 @@ document.addEventListener('DOMContentLoaded', () => {
   const form = document.querySelector('section.contact form');
   if (!form) return;
 
-  form.addEventListener('submit', (e) => {
+  form.addEventListener('submit', () => {
     if (!form.checkValidity()) return;
-    e.preventDefault();
-
     sessionStorage.setItem('msgSent', '1');
-    window.location.href = 'confirmation-page.html?sent=1';
+    // allow normal POST to Formspree via form action/method
   });
 });
 
