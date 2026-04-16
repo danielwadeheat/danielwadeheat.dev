@@ -37,30 +37,41 @@
     <main id="main-content">
         <section class="contact" aria-labelledby="contact-title" role="region">
             <h1 id="contact-title">Contact Me</h1>
-            <form aria-labelledby="contact-title">
-                <label for="name">Name:</label>
-                <input type="text" id="name" name="name" autocomplete="name" required placeholder="Your First and Last Name">
+            <form
+              action="https://formspree.io/f/xojyjozg"
+              method="POST"
+              name="Portfolio-Message"
+              aria-labelledby="contact-title"
+              accept-charset="UTF-8"
+            >
+              <input type="hidden" name="_subject" value="New portfolio contact message">
+              <input type="hidden" name="_next" value="thank-you.html">
+              <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="display:none">
 
-                <label for="phone">Phone:</label>
-                <input
-                  type="tel"
-                  id="phone"
-                  name="phone"
-                  inputmode="numeric"
-                  autocomplete="tel"
-                  pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
-                  title="Use the format 123-456-7890"
-                  required
-                  placeholder="123-456-7890">
-                <span id="phone-help" class="sr-only">Use the format 123-456-7890</span>
+              <label for="name">Name:</label>
+              <input type="text" id="name" name="name" autocomplete="name" required placeholder="Your First and Last Name">
 
-                <label for="email">E-Mail:</label>
-                <input type="email" id="email" name="email" autocomplete="email" required placeholder="Your E-Mail">
+              <label for="phone">Phone:</label>
+              <input
+                type="tel"
+                id="phone"
+                name="phone"
+                inputmode="numeric"
+                autocomplete="tel"
+                pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+                title="Use the format 123-456-7890"
+                aria-describedby="phone-help"
+                required
+                placeholder="123-456-7890">
+              <span id="phone-help" class="sr-only">Use the format 123-456-7890</span>
 
-                <label for="message">Message:</label>
-                <textarea id="message" name="message" rows="5" required placeholder="What is on your mind?"></textarea>
-                
-                <button type="submit">Send Message</button>
+              <label for="email">E-Mail:</label>
+              <input type="email" id="email" name="email" autocomplete="email" required placeholder="Your E-Mail">
+
+              <label for="message">Message:</label>
+              <textarea id="message" name="message" rows="5" required placeholder="What is on your mind?"></textarea>
+
+              <button type="submit">Send Message</button>
             </form>
         </section>
     </main>
