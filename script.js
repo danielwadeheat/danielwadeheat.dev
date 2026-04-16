@@ -276,14 +276,33 @@ function stopLensMatrix(canvas) {
   });
 })();
 
-document.addEventListener('DOMContentLoaded', () => {
-  const form = document.querySelector('section.contact form');
+// Handle contact form submission with AJAX, to override default formspree behavior redirect, so my confirmation page shows
+document.addEventListener("DOMContentLoaded", () => {
+  const form = document.querySelector("section.contact form");
   if (!form) return;
 
-  form.addEventListener('submit', () => {
-    if (!form.checkValidity()) return;
-    sessionStorage.setItem('msgSent', '1');
-    // allow normal POST to Formspree via form action/method
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    if (!form.checkValidity()) {
+      form.reportValidity();
+      return;
+    }
+
+    const formData = new FormData(form);
+
+    const res = await fetch(form.action, {
+      method: "POST",
+      body: formData,
+      headers: { Accept: "application/json" }
+    });
+
+    if (res.ok) {
+      sessionStorage.setItem("msgSent", "1");
+      window.location.href = "confirmation-page.html?sent=1";
+    } else {
+      alert("Message failed to send. Please try again.");
+    }
   });
 });
 
