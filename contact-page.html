@@ -56,14 +56,15 @@
                 type="tel"
                 id="phone"
                 name="phone"
-                inputmode="numeric"
-                autocomplete="tel"
-                pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
-                title="Use the format 123-456-7890"
+                inputmode="tel"
+                autocomplete="tel-national"
+                pattern="^(?:\+?1[\s.-]?)?(?:\(\d{3}\)|\d{3})[\s.-]?\d{3}[\s.-]?\d{4}$"
+                title="Enter a valid US phone number (examples: 1234567890, 123-456-7890, or (123) 456-7890)"
                 aria-describedby="phone-help"
-                required
                 placeholder="123-456-7890">
-              <span id="phone-help" class="sr-only">Use the format 123-456-7890</span>
+              <span id="phone-help" class="sr-only">
+                Enter a valid US phone number.
+              </span>
 
               <label for="email">E-Mail:</label>
               <input type="email" id="email" name="email" autocomplete="email" required placeholder="Your E-Mail">
