@@ -1,8 +1,10 @@
 # danielwadeheat.dev
 
-- The professional portfolio of Daniel Wade Heatherly, highlighting and showcasing skills learned through school at Francis Tuttle Technology Center and through freeCodeCamp, '25-'26.
+- The school capstone and professional portfolio of Daniel Wade Heatherly, highlighting and showcasing skills learned through school at Francis Tuttle Technology Center and through freeCodeCamp, '25-'26.
 
-- Frontend: HTML, CSS, JavaScript
+- IDE: Visual Studio Code
+
+- Frontend: HTML, CSS, JavaScript, Bootstrap, and REACT + Vite
 
 - Hosting: GitHub Pages
 
