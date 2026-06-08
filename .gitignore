@@ -1,1 +1,20 @@
 .DS_Store
+
+# Dependencies
+node_modules/
+
+# Logs
+*.log
+npm-debug.log*
+
+# Local environment files
+.env
+.env.*
+!.env.example
+!.env.*.example
+
+# Build and cache output
+dist/
+build/
+coverage/
+.cache/
