@@ -1,9 +1,15 @@
 const canvas = document.getElementById("matrix");
-const ctx = canvas.getContext("2d");
+const ctx = canvas?.getContext("2d");
+const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
 function resizeCanvas() {
-  canvas.width = window.innerWidth;
-  canvas.height = window.innerHeight;
+  if (!canvas || !ctx) return;
+  const dpr = Math.min(window.devicePixelRatio || 1, 2);
+  canvas.width = Math.ceil(window.innerWidth * dpr);
+  canvas.height = Math.ceil(window.innerHeight * dpr);
+  canvas.style.width = "100%";
+  canvas.style.height = "100%";
+  ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
 }
 resizeCanvas();
 window.addEventListener("resize", () => {
@@ -13,16 +19,18 @@ window.addEventListener("resize", () => {
 
 const letters = "アァイィウヴエェオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワン".split("");
 
-const fontSize = 14;
+const fontSize = 18;
+const matrixFrameInterval = 1000 / 30;
 let drops;
 
 function resetDrops() {
-  const columns = canvas.width / fontSize;
+  const columns = Math.ceil(window.innerWidth / fontSize);
   drops = Array.from({ length: columns }).fill(1);
 }
 resetDrops();
 
 let animationId;
+let lastMatrixFrame = 0;
 
 function closeMobileNav(headerInnerEl, toggleBtn) {
   if (!headerInnerEl) return;
@@ -99,9 +107,17 @@ document.addEventListener("keydown", (event) => {
   });
 });
 
-function draw() {
+function draw(timestamp = 0) {
+  if (!canvas || !ctx || prefersReducedMotion) return;
+
+  if (timestamp - lastMatrixFrame < matrixFrameInterval) {
+    animationId = requestAnimationFrame(draw);
+    return;
+  }
+
+  lastMatrixFrame = timestamp;
   ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
-  ctx.fillRect(0, 0, canvas.width, canvas.height);
+  ctx.fillRect(0, 0, window.innerWidth, window.innerHeight);
 
   ctx.fillStyle = "#0F0";
   ctx.font = fontSize + "px monospace";
@@ -110,7 +126,7 @@ function draw() {
     const text = letters[Math.floor(Math.random() * letters.length)];
     ctx.fillText(text, i * fontSize, drops[i] * fontSize);
 
-    if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+    if (drops[i] * fontSize > window.innerHeight && Math.random() > 0.975) {
       drops[i] = 0;
     }
     drops[i]++;
@@ -119,46 +135,87 @@ function draw() {
   animationId = requestAnimationFrame(draw);
 }
 
+function startMatrix() {
+  if (!canvas || prefersReducedMotion) return;
+  if (animationId) return;
+  canvas.style.opacity = "1";
+  canvas.style.display = "block";
+  lastMatrixFrame = 0;
+  draw();
+}
+
+function stopMatrix() {
+  if (!canvas || !ctx) return;
+  if (animationId) {
+    cancelAnimationFrame(animationId);
+    animationId = null;
+  }
+  ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
+  canvas.style.display = "none";
+  canvas.style.opacity = "1";
+}
+
+function fadeOutMatrix(delay = 250) {
+  if (prefersReducedMotion) {
+    stopMatrix();
+    return;
+  }
+
+  setTimeout(() => {
+    canvas.style.opacity = "0";
+    setTimeout(stopMatrix, 450);
+  }, delay);
+}
+
+function prefetchPage(url) {
+  if (!url || url.startsWith("#")) return;
+  const fullUrl = new URL(url, window.location.href);
+  if (fullUrl.origin !== window.location.origin) return;
+  if (document.querySelector(`link[rel="prefetch"][href="${fullUrl.href}"]`)) return;
+
+  const link = document.createElement("link");
+  link.rel = "prefetch";
+  link.href = fullUrl.href;
+  document.head.appendChild(link);
+}
+
 document.querySelectorAll("header nav a").forEach(link => {
+  link.addEventListener("mouseenter", () => prefetchPage(link.href));
+  link.addEventListener("focus", () => prefetchPage(link.href));
+  link.addEventListener("touchstart", () => prefetchPage(link.href), { passive: true });
+
   link.addEventListener("click", function(e) {
+    if (prefersReducedMotion || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button !== 0) return;
+
     e.preventDefault();
     const targetUrl = this.getAttribute("href");
     const headerInnerEl = this.closest("header")?.querySelector(".header-inner");
     const toggleBtn = headerInnerEl?.querySelector(".menu-toggle");
     closeMobileNav(headerInnerEl, toggleBtn);
 
-    canvas.style.display = "block";
-    draw();
-
     sessionStorage.setItem("matrixEffect", "true");
+    startMatrix();
 
     setTimeout(() => {
       window.location.href = targetUrl;
-    }, 1500);
+    }, 650);
   });
 });
 
-window.addEventListener("load", () => {
+document.addEventListener("DOMContentLoaded", () => {
   if (sessionStorage.getItem("matrixEffect") === "true") {
-    canvas.style.display = "block";
-    draw();
-
     sessionStorage.removeItem("matrixEffect");
-
-    setTimeout(() => {
-      canvas.style.opacity = "0";
-      setTimeout(() => {
-        cancelAnimationFrame(animationId);
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        canvas.style.display = "none";
-        canvas.style.opacity = "1";
-      }, 600);
-    }, 1000);
+    startMatrix();
+    fadeOutMatrix();
   }
 });
 
+window.addEventListener("pagehide", stopMatrix);
+
 const heroEl = document.querySelector(".hero-image");
-if (heroEl && window.PowerGlitch) {
+function initPowerGlitch() {
+  if (!heroEl || !window.PowerGlitch || heroEl.dataset.glitchReady) return;
+  heroEl.dataset.glitchReady = "true";
   PowerGlitch.glitch(heroEl, {
     playMode: "hover",
     createContainers: true,
@@ -169,6 +226,29 @@ if (heroEl && window.PowerGlitch) {
     slice: { count: 10, velocity: 8, minHeight: 0.05, maxHeight: 0.15, hueRotate: true },
   });
 }
+
+function loadPowerGlitchWhenIdle() {
+  if (!heroEl || window.PowerGlitch) {
+    initPowerGlitch();
+    return;
+  }
+
+  const load = () => {
+    const script = document.createElement("script");
+    script.src = "https://unpkg.com/powerglitch/dist/powerglitch.min.js";
+    script.async = true;
+    script.onload = initPowerGlitch;
+    document.head.appendChild(script);
+  };
+
+  if ("requestIdleCallback" in window) {
+    requestIdleCallback(load, { timeout: 2000 });
+  } else {
+    window.addEventListener("load", () => setTimeout(load, 0), { once: true });
+  }
+}
+
+loadPowerGlitchWhenIdle();
 
 // Legacy fallback for the old single-canvas shades effect.
 const heroImage = document.querySelector(".hero-image");

@@ -1,11 +1,12 @@
 {
   "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": "explicit",
-    "source.fixAll.stylelint": "explicit"
+    "source.fixAll.eslint": "explicit"
   },
+  "cSpell.configFile": "${workspaceFolder}/cspell.json",
+  "css.validate": false,
   "eslint.run": "onSave",
-  "eslint.validate": ["javascript"],
-
-  "stylelint.validate": ["css", "scss"],
-  "css.validate": false
+  "eslint.validate": [
+    "javascript",
+    "css"
+  ]
 }

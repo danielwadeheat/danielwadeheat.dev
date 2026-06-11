@@ -6,20 +6,19 @@
     <meta name="description" content="Projects by Daniel Wade Heatherly, Front-End Web Developer.">
     <meta name="keywords" content="school work, homework, web development, HTML, CSS, coding, projects page">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lobster&family=Montserrat:wght@600&family=Roboto&display=swap">
     <link rel="stylesheet" href="reset.css">    
     <link rel="stylesheet" href="styles.css?v=20260610-electrode">
     <link rel="stylesheet" href="responsive.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Roboto&display=swap">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
 </head>
 <body>
 
   <header>
     <div class="header-inner">
       <a class="skip-link" href="#main-content">Skip to main content</a>
-      <img src="assets/images/DWH_logo.png" alt="Logo with the initials DWH">
+      <img src="assets/images/optimized/DWH_logo-128.webp" srcset="assets/images/optimized/DWH_logo-64.webp 1x, assets/images/optimized/DWH_logo-128.webp 2x, assets/images/optimized/DWH_logo-192.webp 3x" width="64" height="64" alt="Logo with the initials DWH" decoding="async">
       <button class="menu-toggle" type="button" aria-controls="primary-nav" aria-expanded="false">
         <span class="menu-icon" aria-hidden="true"></span>
         <span class="menu-label">Menu</span>
@@ -43,21 +42,30 @@
           <img
             class="project-media electrode-project-image"
             src="assets/images/electrode_screenshot.webp"
+            width="700"
+            height="1100"
             alt="Full view of the Electrode Repairs website UI"
+            decoding="async"
             data-video=""
           >
           <p>I built a full Front-End UI for Electrode Repairs, where I was assigned to through my Chickasaw School-To-Work-Program internship, and as a Software Engineering Team school course project for my Francis Tuttle Technology Center "Programming &amp; Software Engineering" Certification.</p>
       </section>
 
       <section id="project2">
-          <h2>Project Two</h2>
+          <h2>Wireframes &amp; Planning</h2>
           <img
             class="project-media"
-            src="assets/images/project2-full.jpg"
-            alt="Full view of Project Two"
+            src="assets/images/optimized/wireframe_5_page-900.webp"
+            srcset="assets/images/optimized/wireframe_5_page-900.webp 900w, assets/images/optimized/wireframe_5_page-1512.webp 1512w"
+            sizes="(max-width: 900px) calc(100vw - 1.5rem), 900px"
+            width="900"
+            height="1046"
+            alt="Detailed wireframe planning page"
+            loading="lazy"
+            decoding="async"
             data-video=""
           >
-          <p>Description of the problem it solves, your approach, and technologies used.</p>
+          <p>Early planning work showing page structure, content hierarchy, and responsive layout decisions.</p>
       </section>
 
       </div>
@@ -84,7 +92,7 @@
   </footer>
 
   <canvas id="matrix" aria-hidden="true"></canvas>
-  <script src="script.js"></script>
+  <script src="script.js" defer></script>
 
 </body>
 </html>

@@ -6,13 +6,12 @@
     <meta name="description" content="The portfolio homepage of Daniel Wade Heatherly.">
     <meta name="keywords" content="school work, homework, web development, HTML, CSS, coding, home page">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lobster&family=Montserrat:wght@600&family=Roboto&display=swap">
     <link rel="stylesheet" href="reset.css">
     <link rel="stylesheet" href="styles.css?v=20260610-electrode">
     <link rel="stylesheet" href="responsive.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Roboto&display=swap">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
     <link rel="preload" href="assets/fonts/bavro/bavro-regular-webfont.woff2" as="font" type="font/woff2" crossorigin>
 </head>
 
@@ -21,7 +20,7 @@
     <header>
         <div class="header-inner">
             <a class="skip-link" href="#main-content">Skip to main content</a>
-            <img src="assets/images/DWH_logo.png" alt="Logo with the initials DWH">
+            <img src="assets/images/optimized/DWH_logo-128.webp" srcset="assets/images/optimized/DWH_logo-64.webp 1x, assets/images/optimized/DWH_logo-128.webp 2x, assets/images/optimized/DWH_logo-192.webp 3x" width="64" height="64" alt="Logo with the initials DWH" decoding="async">
             <button class="menu-toggle" type="button" aria-controls="primary-nav" aria-expanded="false">
                 <span class="menu-icon" aria-hidden="true"></span>
                 <span class="menu-label">Menu</span>
@@ -39,7 +38,16 @@
     <main id="main-content">
     <section class="hero" aria-labelledby="hero-title" role="region"> 
       <figure class="hero-image">
-        <img src="assets/images/headshot.jpg" alt="Headshot of Daniel Wade Heatherly">
+        <img
+          src="assets/images/optimized/headshot-330.webp"
+          srcset="assets/images/optimized/headshot-330.webp 330w, assets/images/optimized/headshot-510.webp 510w"
+          sizes="(min-width: 1134px) 255px, (max-width: 733px) 165px, 22.5vw"
+          width="330"
+          height="448"
+          alt="Headshot of Daniel Wade Heatherly"
+          fetchpriority="high"
+          decoding="async"
+        >
 
         <div class="glasses">
           <div class="lens lens-left">
@@ -74,13 +82,22 @@
         <div class="project-grid">
             <a href="projects-page.html#project1" class="project-preview electrode-project-card">
             <h2>Electrode Repairs</h2>
-            <img class="electrode-project-image" src="assets/images/electrode_screenshot.webp" alt="Electrode Repairs website preview">
+            <img class="electrode-project-image" src="assets/images/electrode_screenshot.webp" width="700" height="1100" alt="Electrode Repairs website preview" loading="lazy" decoding="async">
             </a>
 
-            <a href="projects.html#project2" class="project-preview">
-            <img src="assets/images/project2-thumb.jpg" alt="Project 2 Thumbnail">
-            <h2>Project Two</h2>
-            <p>Short description of Project Two.</p>
+            <a href="projects-page.html#project2" class="project-preview">
+            <img
+              src="assets/images/optimized/wireframes_1-4_pages-340.webp"
+              srcset="assets/images/optimized/wireframes_1-4_pages-340.webp 340w, assets/images/optimized/wireframes_1-4_pages-680.webp 680w"
+              sizes="(max-width: 380px) calc(100vw - 3rem), 340px"
+              width="340"
+              height="453"
+              alt="Wireframe planning pages preview"
+              loading="lazy"
+              decoding="async"
+            >
+            <h2>Wireframes &amp; Planning</h2>
+            <p>Early layout planning and responsive design structure.</p>
             </a>
         </div>
     </section>
@@ -117,9 +134,7 @@
 
 <canvas id="matrix" aria-hidden="true"></canvas>
 
-<script src="https://unpkg.com/powerglitch/dist/powerglitch.min.js"></script>
-
-<script src="script.js"></script>
+<script src="script.js" defer></script>
 
 </body>
 </html>

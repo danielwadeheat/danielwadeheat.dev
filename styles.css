@@ -322,8 +322,9 @@ nav a:active {
   z-index: 9999;
   pointer-events: none;
   background: transparent;
-  transition: opacity 0.6s ease;
+  transition: opacity 450ms ease;
   opacity: 1;
+  will-change: opacity;
 }
 
 /* ==========================
@@ -1019,6 +1020,7 @@ footer a {
    ========================== */
 
 @media (prefers-reduced-motion: reduce) {
+  #matrix,
   .project-media {
     transition: none;
   }
