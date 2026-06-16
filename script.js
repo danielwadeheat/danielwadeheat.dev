@@ -21,6 +21,8 @@ const letters = "アァイィウヴエェオカキクケコサシスセソタチ
 
 const fontSize = 18;
 const matrixFrameInterval = 1000 / 30;
+const matrixNavigationDelay = 850;
+const matrixEntryFadeDelay = 450;
 let drops;
 
 function resetDrops() {
@@ -135,9 +137,42 @@ function draw(timestamp = 0) {
   animationId = requestAnimationFrame(draw);
 }
 
-function startMatrix() {
+function saveMatrixState() {
+  if (!drops) return;
+  sessionStorage.setItem(
+    "matrixState",
+    JSON.stringify({
+      drops,
+      width: window.innerWidth,
+      fontSize
+    })
+  );
+}
+
+function restoreMatrixState() {
+  const savedState = sessionStorage.getItem("matrixState");
+  sessionStorage.removeItem("matrixState");
+  if (!savedState) return false;
+
+  try {
+    const state = JSON.parse(savedState);
+    const columns = Math.ceil(window.innerWidth / fontSize);
+    const savedDrops = Array.isArray(state.drops) ? state.drops : [];
+    const fallbackDrop = Math.max(1, Math.round(window.innerHeight / fontSize / 2));
+    drops = Array.from({ length: columns }, (_, index) => {
+      const savedDrop = Number(savedDrops[index]);
+      return Number.isFinite(savedDrop) ? savedDrop : fallbackDrop;
+    });
+    return true;
+  } catch {
+    return false;
+  }
+}
+
+function startMatrix({ resume = false } = {}) {
   if (!canvas || prefersReducedMotion) return;
   if (animationId) return;
+  if (!resume) resetDrops();
   canvas.style.opacity = "1";
   canvas.style.display = "block";
   lastMatrixFrame = 0;
@@ -194,19 +229,22 @@ document.querySelectorAll("header nav a").forEach(link => {
     closeMobileNav(headerInnerEl, toggleBtn);
 
     sessionStorage.setItem("matrixEffect", "true");
+    sessionStorage.removeItem("matrixState");
     startMatrix();
 
     setTimeout(() => {
+      saveMatrixState();
       window.location.href = targetUrl;
-    }, 650);
+    }, matrixNavigationDelay);
   });
 });
 
 document.addEventListener("DOMContentLoaded", () => {
   if (sessionStorage.getItem("matrixEffect") === "true") {
     sessionStorage.removeItem("matrixEffect");
-    startMatrix();
-    fadeOutMatrix();
+    const restoredMatrix = restoreMatrixState();
+    startMatrix({ resume: restoredMatrix });
+    fadeOutMatrix(matrixEntryFadeDelay);
   }
 });
 
