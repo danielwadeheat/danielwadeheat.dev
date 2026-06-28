@@ -5,7 +5,7 @@ import { defineConfig } from "eslint/config";
 
 export default defineConfig([
   {
-    ignores: ["node_modules/**", "assets/images/optimized/**"]
+    ignores: ["node_modules/**", "assets/images/optimized/**"],
   },
   {
     files: ["**/*.{js,mjs,cjs}"],
@@ -14,9 +14,9 @@ export default defineConfig([
     languageOptions: {
       globals: {
         ...globals.browser,
-        PowerGlitch: "readonly"
-      }
-    }
+        PowerGlitch: "readonly",
+      },
+    },
   },
   {
     files: ["**/*.css"],
@@ -25,7 +25,7 @@ export default defineConfig([
     extends: ["css/recommended"],
     rules: {
       "css/no-important": "off",
-      "css/use-baseline": "off"
-    }
-  }
+      "css/use-baseline": "off",
+    },
+  },
 ]);

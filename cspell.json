@@ -3,9 +3,7 @@
   "version": "0.2",
   "language": "en",
   "useGitignore": true,
-  "files": [
-    "**/*.{css,html,js,json,md,mjs,txt}"
-  ],
+  "files": ["**/*.{css,html,js,json,md,mjs,txt}"],
   "ignorePaths": [
     "assets/fonts/**",
     "assets/images/**",
@@ -56,12 +54,11 @@
     "hackathons",
     "headshot",
     "homepage",
+    "htmlhint",
     "inclusivity",
     "srcset",
     "underserved",
     "wireframes"
   ],
-  "ignoreWords": [
-    "xojyjozg"
-  ]
+  "ignoreWords": ["xojyjozg"]
 }

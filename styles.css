@@ -2,42 +2,45 @@
    Base Mobile-First Styles
    ========================== */
 
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
 :root {
-  --primary-color: #004F4F;
+  --primary-color: #004f4f;
   --accent-color: #89b389;
   --background-color: url("https://cdn-media-1.freecodecamp.org/imgr/MJAkxbh.png");
-  --text-color: #1A1A1A;
-  --font-heading: 'Montserrat', sans-serif;
-  --font-body: 'Roboto', sans-serif;
-  --font-h1: 'Bavro', 'Lobster', 'Montserrat', sans-serif;
-  --font-h2: 'Throw My Hands Up', 'Lobster', 'Montserrat', sans-serif;
+  --text-color: #1a1a1a;
+  --font-heading: "Montserrat", sans-serif;
+  --font-body: "Roboto", sans-serif;
+  --font-h1: "Bavro", "Lobster", "Montserrat", sans-serif;
+  --font-h2: "Throw My Hands Up", "Lobster", "Montserrat", sans-serif;
 }
 
 @font-face {
   font-family: Bavro;
-  src: url('assets/fonts/bavro/bavro-regular-webfont.woff2') format('woff2'),
-       url('assets/fonts/bavro/bavro-regular-webfont.woff') format('woff'),
-       url('assets/fonts/bavro/bavro-regular-webfont.ttf') format('truetype');
+  src:
+    url("assets/fonts/bavro/bavro-regular-webfont.woff2") format("woff2"),
+    url("assets/fonts/bavro/bavro-regular-webfont.woff") format("woff"),
+    url("assets/fonts/bavro/bavro-regular-webfont.ttf") format("truetype");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'Throw My Hands Up';
-  src: url('assets/fonts/throw_my_hands_up/ThrowMyHandsUpintheAir.ttf') format('truetype');
+  font-family: "Throw My Hands Up";
+  src: url("assets/fonts/throw_my_hands_up/ThrowMyHandsUpintheAir.ttf") format("truetype");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'Throw My Hands Up';
-  src: url('assets/fonts/throw_my_hands_up/ThrowMyHandsUpintheAirBold.ttf') format('truetype');
+  font-family: "Throw My Hands Up";
+  src: url("assets/fonts/throw_my_hands_up/ThrowMyHandsUpintheAirBold.ttf") format("truetype");
   font-weight: 700;
   font-style: normal;
   font-display: swap;
@@ -78,7 +81,7 @@ main,
 .projects,
 .contact {
   max-width: 900px;
-  padding: 1.5rem .75rem;
+  padding: 1.5rem 0.75rem;
 }
 
 h1 {
@@ -149,7 +152,10 @@ header {
   right: 0;
   z-index: 100;
   backdrop-filter: blur(4px) saturate(1.1);
-  transition: padding 220ms ease, min-height 220ms ease, background-color 220ms ease;
+  transition:
+    padding 220ms ease,
+    min-height 220ms ease,
+    background-color 220ms ease;
 }
 
 .header-inner {
@@ -171,7 +177,9 @@ header img {
   margin-bottom: 0;
   border-radius: 25%;
   box-shadow: 0 0 4px 4px rgb(32 32 32 / 52.7%);
-  transition: width 220ms ease, box-shadow 220ms ease;
+  transition:
+    width 220ms ease,
+    box-shadow 220ms ease;
 }
 
 header .header-inner img[role="button"] {
@@ -220,9 +228,10 @@ nav {
   transform: translateY(-8px);
   overflow: hidden;
   pointer-events: none;
-  transition: max-height 380ms cubic-bezier(0.22, 1, 0.36, 1),
-              opacity 240ms ease,
-              transform 320ms ease;
+  transition:
+    max-height 380ms cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 240ms ease,
+    transform 320ms ease;
 }
 
 header.is-condensed nav {
@@ -234,7 +243,7 @@ nav a {
   position: relative;
   overflow: hidden;
   margin: 0;
-  padding: 0.25rem .5rem;
+  padding: 0.25rem 0.5rem;
   border-radius: 5px;
   align-items: center;
   justify-content: center;
@@ -247,7 +256,9 @@ nav a {
     background-color 0.3s ease,
     color 0.3s ease;
   z-index: 0;
-  box-shadow: 0 4px 0 #222, 0 2px 8px rgb(0 0 0 / 15%);
+  box-shadow:
+    0 4px 0 #222,
+    0 2px 8px rgb(0 0 0 / 15%);
   opacity: 0;
   transform: translateY(-8px);
 }
@@ -255,14 +266,16 @@ nav a {
 nav a:hover {
   transform: scale(1.1);
   background-color: var(--accent-color);
-  color: #1A1A1A;
+  color: #1a1a1a;
   border: black 1px solid;
   z-index: 5;
 }
 
 nav a:active {
   transform: translate3d(1px, 1px, 1px);
-  box-shadow: 1.5px 2px 0 #222, 0 1px 4px rgb(0 0 0 / 10%);
+  box-shadow:
+    1.5px 2px 0 #222,
+    0 1px 4px rgb(0 0 0 / 10%);
 }
 
 .header-inner.nav-open nav {
@@ -277,11 +290,21 @@ nav a:active {
   transform: translateY(0);
 }
 
-.header-inner.nav-open nav a:nth-child(1) { transition-delay: 0ms; }
-.header-inner.nav-open nav a:nth-child(2) { transition-delay: 70ms; }
-.header-inner.nav-open nav a:nth-child(3) { transition-delay: 140ms; }
-.header-inner.nav-open nav a:nth-child(4) { transition-delay: 210ms; }
-.header-inner.nav-open nav a:nth-child(5) { transition-delay: 280ms; }
+.header-inner.nav-open nav a:nth-child(1) {
+  transition-delay: 0ms;
+}
+.header-inner.nav-open nav a:nth-child(2) {
+  transition-delay: 70ms;
+}
+.header-inner.nav-open nav a:nth-child(3) {
+  transition-delay: 140ms;
+}
+.header-inner.nav-open nav a:nth-child(4) {
+  transition-delay: 210ms;
+}
+.header-inner.nav-open nav a:nth-child(5) {
+  transition-delay: 280ms;
+}
 
 .menu-toggle {
   display: inline-flex;
@@ -309,7 +332,9 @@ nav a:active {
   width: 1.25rem;
   height: 2px;
   background: #fff;
-  box-shadow: 0 -6px 0 #fff, 0 6px 0 #fff;
+  box-shadow:
+    0 -6px 0 #fff,
+    0 6px 0 #fff;
 }
 
 #matrix {
@@ -390,19 +415,27 @@ nav a:active {
   text-decoration: none;
   color: whitesmoke;
   cursor: pointer;
-  transition: background 0.2s, color 0.2s;
-  box-shadow: 1px 4px 0 #222, 0 2px 8px rgb(0 0 0 / 15%);
+  transition:
+    background 0.2s,
+    color 0.2s;
+  box-shadow:
+    1px 4px 0 #222,
+    0 2px 8px rgb(0 0 0 / 15%);
 }
 
 .hero-btn:hover {
-  background: #004F4F;
+  background: #004f4f;
   color: whitesmoke;
-  transition: background 0.2s, color 0.2s;
+  transition:
+    background 0.2s,
+    color 0.2s;
 }
 
 .hero-btn:active {
   transform: translate3d(1px, 1px, 1px);
-  box-shadow: 1.5px 2px 0 #222, 0 1px 4px rgb(0 0 0 / 10%);
+  box-shadow:
+    1.5px 2px 0 #222,
+    0 1px 4px rgb(0 0 0 / 10%);
 }
 
 /* ==========================
@@ -461,7 +494,7 @@ nav a:active {
 .shades-frame ellipse {
   fill: none;
   stroke: #333;
-  stroke-opacity: .6;
+  stroke-opacity: 0.6;
   stroke-width: 2;
 }
 
@@ -599,8 +632,7 @@ nav a:active {
   justify-content: flex-start;
   gap: 0;
   padding: 15px;
-  background:
-    linear-gradient(145deg, #c7bfb0 0%, #aa9f8d 52%, #807565 100%);
+  background: linear-gradient(145deg, #c7bfb0 0%, #aa9f8d 52%, #807565 100%);
   border: 1px solid rgb(66 61 54 / 24%);
   box-shadow: 0 10px 26px rgb(50 46 40 / 16%);
   text-align: center;
@@ -655,7 +687,7 @@ nav a:active {
   font-family: var(--font-h1);
   font-size: 3rem;
   font-weight: inherit;
-  letter-spacing: .1rem;
+  letter-spacing: 0.1rem;
   text-align: center;
   width: 100%;
   margin: 2rem 0 0;
@@ -670,7 +702,7 @@ nav a:active {
   font-family: var(--font-h1);
   font-size: 3rem;
   font-weight: inherit;
-  letter-spacing: .1rem;
+  letter-spacing: 0.1rem;
   text-align: center;
   margin: 2rem 0;
 }
@@ -718,7 +750,9 @@ nav a:active {
   border-radius: 8px;
   transform: scale(1);
   transform-origin: center;
-  transition: transform 220ms ease, box-shadow 220ms ease;
+  transition:
+    transform 220ms ease,
+    box-shadow 220ms ease;
   cursor: pointer;
 }
 
@@ -739,8 +773,9 @@ nav a:active {
   z-index: 1;
   transform: scale(1);
   transform-origin: center;
-  transition: transform 1.1s cubic-bezier(0.22, 1, 0.36, 1),
-              box-shadow 420ms ease;
+  transition:
+    transform 1.1s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 420ms ease;
 }
 
 .electrode-project-detail .project-media,
@@ -755,8 +790,9 @@ nav a:active {
   z-index: 2;
   transform: scale(1);
   transform-origin: center 25%;
-  transition: transform 620ms cubic-bezier(0.22, 1, 0.36, 1),
-              box-shadow 320ms ease;
+  transition:
+    transform 620ms cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 320ms ease;
 }
 
 #home-projects .electrode-project-card:hover .electrode-project-image {
@@ -819,7 +855,7 @@ nav a:active {
   font-family: var(--font-h1);
   font-size: 3rem;
   font-weight: inherit;
-  letter-spacing: .1rem;
+  letter-spacing: 0.1rem;
   text-align: center;
   margin: 0 0 2rem;
 }
@@ -856,8 +892,14 @@ nav a:active {
   max-width: 200px;
   cursor: pointer;
   box-sizing: border-box;
-  box-shadow: 1px 4px 0 #222, 0 2px 8px rgb(0 0 0 / 15%);
-  transition: background 0.2s, color 0.2s, box-shadow 0.15s, transform 0.15s;
+  box-shadow:
+    1px 4px 0 #222,
+    0 2px 8px rgb(0 0 0 / 15%);
+  transition:
+    background 0.2s,
+    color 0.2s,
+    box-shadow 0.15s,
+    transform 0.15s;
 }
 
 .resume-link:hover {
@@ -867,7 +909,9 @@ nav a:active {
 
 .resume-link:active {
   transform: translate3d(1px, 1px, 1px);
-  box-shadow: 1.5px 2px 0 #222, 0 1px 4px rgb(0 0 0 / 10%);
+  box-shadow:
+    1.5px 2px 0 #222,
+    0 1px 4px rgb(0 0 0 / 10%);
 }
 
 /* ==========================
@@ -888,7 +932,7 @@ nav a:active {
   font-family: var(--font-h1);
   font-size: 3rem;
   font-weight: inherit;
-  letter-spacing: .1rem;
+  letter-spacing: 0.1rem;
   text-align: center;
   margin: 1.5rem 0;
 }
@@ -923,8 +967,14 @@ nav a:active {
   padding: 0.5em 1.5em;
   font-size: 1rem;
   cursor: pointer;
-  box-shadow: 1px 4px 0 #222, 0 2px 8px rgb(0 0 0 / 15%);
-  transition: background 0.2s, color 0.2s, box-shadow 0.15s, transform 0.15s;
+  box-shadow:
+    1px 4px 0 #222,
+    0 2px 8px rgb(0 0 0 / 15%);
+  transition:
+    background 0.2s,
+    color 0.2s,
+    box-shadow 0.15s,
+    transform 0.15s;
 }
 
 .contact button[type="submit"]:hover {
@@ -934,7 +984,9 @@ nav a:active {
 
 .contact button[type="submit"]:active {
   transform: translate3d(1px, 1px, 1px);
-  box-shadow: 1.5px 2px 0 #222, 0 1px 4px rgb(0 0 0 / 10%);
+  box-shadow:
+    1.5px 2px 0 #222,
+    0 1px 4px rgb(0 0 0 / 10%);
 }
 
 /* ==========================
@@ -1010,7 +1062,7 @@ footer a {
 .linkedin-icon {
   width: 20px;
   height: 20px;
-  fill: #0A66C2;
+  fill: #0a66c2;
 }
 
 /* ==========================
@@ -1089,7 +1141,7 @@ footer a {
 
   .about-header-flex {
     flex-direction: column;
-    gap: .5em;
+    gap: 0.5em;
   }
 
   .about-video-space {

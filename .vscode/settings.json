@@ -5,8 +5,5 @@
   "cSpell.configFile": "${workspaceFolder}/cspell.json",
   "css.validate": false,
   "eslint.run": "onSave",
-  "eslint.validate": [
-    "javascript",
-    "css"
-  ]
+  "eslint.validate": ["javascript", "css"]
 }

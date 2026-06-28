@@ -1,0 +1,5 @@
+assets/fonts/**
+assets/images/**
+assets/resume/**
+node_modules/**
+package-lock.json
