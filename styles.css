@@ -755,7 +755,8 @@ nav a:active {
   margin-bottom: 0;
 }
 
-.portfolio-repo-line {
+.portfolio-repo-line,
+.project-repo-line {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -768,13 +769,19 @@ nav a:active {
   overflow-wrap: anywhere;
 }
 
-.portfolio-repo-label {
+.project-repo-line {
+  margin: 1rem auto 0;
+}
+
+.portfolio-repo-label,
+.repo-label {
   color: var(--primary-color);
   font-weight: 700;
   text-decoration: none;
 }
 
-.portfolio-repo-url {
+.portfolio-repo-url,
+.repo-url {
   color: var(--text-color);
   font-weight: 400;
   text-decoration-line: underline;
